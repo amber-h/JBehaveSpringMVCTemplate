@@ -2,10 +2,7 @@ package org.jbehave.web;
 
 import org.jbehave.business.Steps;
 import org.jbehave.business.StockAlertStatus;
-import org.jbehave.core.annotations.Given;
-import org.jbehave.core.annotations.Named;
-import org.jbehave.core.annotations.Then;
-import org.jbehave.core.annotations.When;
+import org.jbehave.core.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -21,6 +18,11 @@ public class TradingServiceWebSteps {
 	@Autowired
 	@Qualifier("showStatusStockPage")
 	private ShowStockStatusPage showStockStatusPage;
+
+    @AfterStories
+    public void closeBrower() {
+        insertStockPage.close();
+    }
 	
 	@Given("trader starts web application")
 	public void aNewStockCreated() {

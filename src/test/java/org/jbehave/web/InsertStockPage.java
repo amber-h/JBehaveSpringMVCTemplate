@@ -30,5 +30,8 @@ public class InsertStockPage {
 	public void setStockUrl(String url) {
 		this.stockUrl = url;
 	}
-	
+
+    public void close() {
+        pageUtils.close();
+    }
 }
