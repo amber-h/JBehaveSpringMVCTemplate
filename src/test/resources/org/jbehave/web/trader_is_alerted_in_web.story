@@ -1,10 +1,11 @@
-Scenario: trader should insert stock data in a web page interface. trader should be not alerted below threshold and should be alerted above threshold after it has been inserted.
+Scenario: trader should insert stock data in a web page interface. trader should be alerted above threshold after it has been inserted.
 
 Given trader starts web application
-When trader inserts stock <symbol> with threshold <threshold> and trade at <tradeAt>
-Then web page should show an <status> message
+When trader inserts stock STK1 with threshold 5 and trade at 4
+Then web page should show an OFF message
 
-Examples:
-|symbol|threshold|tradeAt|status|
-|STK1|5|4|OFF|
-|STK1|5|14|ON|
+Scenario: trader should insert stock data in a web page interface. trader should be not alerted below threshold.
+
+Given trader starts web application
+When trader inserts stock STK1 with threshold 5 and trade at 14
+Then web page should show an ON message

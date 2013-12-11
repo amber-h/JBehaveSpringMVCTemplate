@@ -28,12 +28,12 @@ public class TradingServiceWebSteps {
 	public void aNewStockCreated() {
 		insertStockPage.open();
 	}
-	@When("trader inserts stock <symbol> with threshold <threshold> and trade at <tradeAt>")
+	@When("trader inserts stock $symbol with threshold $threshold and trade at $tradeAt")
 	public void newStockDataIsProvided(@Named("symbol")String symbol, @Named("threshold")double threshold, @Named("tradeAt")double tradeAt) {
 		insertStockPage.fillForm(symbol, Double.toString(threshold), Double.toString(tradeAt));
 		insertStockPage.submitForm();
 	}
-	@Then("web page should show an <status> message")
+	@Then("web page should show an $status message")
 	public void stockStatusShouldBeShowed(@Named("status")StockAlertStatus status) {
 		assertThat(showStockStatusPage.getStockStatusMessage(), is(status.name()));
 	}
