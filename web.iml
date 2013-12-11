@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
+    <facet type="AspectJ" name="AspectJ">
+      <configuration>
+        <option name="overrideAspectPath" value="true" />
+      </configuration>
+    </facet>
     <facet type="web" name="Web">
       <configuration>
         <descriptors>
@@ -15,21 +20,16 @@
         </sourceRoots>
       </configuration>
     </facet>
-    <facet type="AspectJ" name="AspectJ">
-      <configuration>
-        <option name="overrideAspectPath" value="true" />
-      </configuration>
-    </facet>
     <facet type="Spring" name="Spring">
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/spring/root-context.xml</file>
-          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/spring/appServlet/controllers.xml</file>
-          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml</file>
           <file>file://$MODULE_DIR$/src/test/resources/org/jbehave/business/configuration.xml</file>
-          <file>file://$MODULE_DIR$/src/test/resources/org/jbehave/business/tradingService-acceptancetest.xml</file>
-          <file>file://$MODULE_DIR$/src/test/resources/org/jbehave/web/selenium/selenium-applicationContext.xml</file>
           <file>file://$MODULE_DIR$/src/test/resources/org/jbehave/web/tradingService-webacceptancetest.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml</file>
+          <file>file://$MODULE_DIR$/src/test/resources/org/jbehave/web/selenium/selenium-applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/spring/appServlet/controllers.xml</file>
+          <file>file://$MODULE_DIR$/src/test/resources/org/jbehave/business/tradingService-acceptancetest.xml</file>
         </fileset>
       </configuration>
     </facet>

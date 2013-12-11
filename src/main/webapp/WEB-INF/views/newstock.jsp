@@ -13,7 +13,7 @@
 		<table>
 			<tr>
 				<td>
-					Stock:
+					Stock revised:
 				</td>
 				<td>
 					<form:input path="name"/>
@@ -21,7 +21,7 @@
 			</tr>
 			<tr>
 				<td>
-					Threshold:
+					Threshold revised:
 				</td>
 				<td>
 					<form:input path="threshold"/>
@@ -29,7 +29,7 @@
 			</tr>
 			<tr>
 				<td>
-					Trade At:
+					Trade At revised:
 				</td>
 				<td>
 					<form:input path="tradeAt"/>
