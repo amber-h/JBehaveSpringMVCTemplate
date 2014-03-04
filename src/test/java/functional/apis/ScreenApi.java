@@ -16,7 +16,8 @@ public class ScreenApi {
 
 
     public void showsBanner() {
+        webDriver.get("http://localhost:8080");
         String message = webDriver.findElement(By.id("banner")).getText();
-        assertThat(message, is("Football League"));
+        assertThat(message, is("Welcome to the Fabulous Football League Manager!"));
     }
 }

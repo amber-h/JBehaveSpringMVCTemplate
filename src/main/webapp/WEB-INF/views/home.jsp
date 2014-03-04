@@ -1,16 +1,10 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: thoughtworker
-  Date: 3/4/14
-  Time: 2:01 PM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title></title>
-</head>
-<body>
-
-</body>
+    <head>
+        <title>Football Manager</title>
+    </head>
+    <body>
+        <div id="banner">Welcome to the Fabulous Football League Manager!</div>
+    </body>
 </html>
