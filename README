@@ -1,7 +1,9 @@
+Pre-reqs: Install Tomcat and Maven
+
 How to download and run the project:
 
         (1) Clone it from the GitHub repo
-            $ git clone https://github.com/BillSchofield/JBehaveSpringMVCTemplate.git
+            $ git clone https://github.com/amber-h/JBehaveSpringMVCTemplate.git
 
         (2) Open project with IntelliJ
             Import project
