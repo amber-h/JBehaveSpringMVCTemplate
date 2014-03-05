@@ -3,13 +3,52 @@
     font-family: 'Roboto', sans-serif;
 }
 
-body, body * {
-    width:1000px;
+body {
+    margin: 0px;
+}
+
+#menu, #menu * {
     background-color: #FFF;
+}
+
+#menu {
+    display:inline-block;
+    width:10%;
+    vertical-align:top;
+}
+
+#menu ul {
+    list-style-type: none;
+    padding: 5px 10px;
+    margin: 0px;
+}
+
+#menu li {
+    padding: 5px 0px;
+}
+
+#contents {
+    display:inline-block;
+    width:80%;
+    height: 100%;
     align-content: center;
     margin: auto;
 }
 
-body div {
-    padding: 100px 0px;
+#banner-image {
+    width:100%;
+}
+
+#contents, #contents * {
+    background-color: #FFF;
+}
+
+div #banner {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#banner p {
+    text-align: center;
 }

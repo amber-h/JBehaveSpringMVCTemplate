@@ -16,6 +16,5 @@ public class HomeControllerTest {
         String homePage = homeController.displayPage(model);
 
         assertThat(homePage, is("home"));
-
     }
 }
