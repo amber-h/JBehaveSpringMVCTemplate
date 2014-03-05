@@ -11,15 +11,15 @@ public class SearchControllerTest {
     private SearchController searchController;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         searchController = new SearchController();
 
     }
 
     @Test
     public void shouldDisplaySearchPage() throws Exception {
-        String homePage = searchController.displayPage();
+        String page = searchController.displayPage();
 
-        assertThat(homePage, is("search"));
+        assertThat(page, is("search"));
     }
 }
