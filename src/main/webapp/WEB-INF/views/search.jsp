@@ -11,7 +11,7 @@
 <div id="menu">
     <ul>
         <li>
-            <a href="<c:url value='/' />" >
+            <a href="<c:url value='/' />">
                 List Players</a>
         </li>
         <li>
@@ -23,7 +23,14 @@
 <div id="contents">
     <img id="banner-image" src="<c:url value='/images/banner.png'/>"/>
 
+    <form action="/search" method="post" modelAttribute="playerInfo">
+        Player Name: <input type="text" name="name"><br>
+        Number: <input type="text" name="number"><br>
+        <input type="submit" value="Submit">
+    </form>
+
 </div>
+
 
 </body>
 </html>
