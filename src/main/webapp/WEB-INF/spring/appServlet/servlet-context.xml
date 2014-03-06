@@ -23,6 +23,10 @@
 	
 	<!-- Imports user-defined @Controller beans that process client requests -->
 	<beans:import resource="controllers.xml" />
-	
+
+    <beans:bean class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+
+    </beans:bean>
+
 </beans:beans>
 
