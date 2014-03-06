@@ -8,12 +8,11 @@
     <title>Football Manager</title>
 </head>
 <body>
-
 <div id="menu">
     <ul>
         <li>
-            <a href="<c:url value='/' />" >
-            List Players</a>
+            <a href="<c:url value='/' />">
+                List Players</a>
         </li>
         <li>
             <a href="<c:url value="/search" />">Search</a>
@@ -21,13 +20,14 @@
     </ul>
 
 </div>
-
 <div id="contents">
     <img id="banner-image" src="<c:url value='/images/banner.png'/>"/>
 
-    <div id="banner">
-        <p>Welcome to the Fabulous Football League Manager!</p>
-    </div>
+    <p>The results of your search for ${name}:</p>
+
 </div>
+
+
 </body>
 </html>
+

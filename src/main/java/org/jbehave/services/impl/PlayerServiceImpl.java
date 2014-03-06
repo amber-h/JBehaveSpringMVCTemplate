@@ -1,6 +1,7 @@
 package org.jbehave.services.impl;
 
 import org.jbehave.dao.PlayerDao;
+import org.jbehave.dao.PlayerDaoImpl.HibernatePlayerDao;
 import org.jbehave.model.Player;
 import org.jbehave.services.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class PlayerServiceImpl  implements PlayerService{
 
     @Transactional
     public Player getPlayer() {
-        playerDao = new PlayerDao();
+        playerDao = new HibernatePlayerDao();
         return playerDao.findPlayer();
     }
 
