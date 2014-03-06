@@ -10,11 +10,11 @@ import static org.junit.Assert.assertThat;
 public class HomeControllerTest {
     HomeController homeController = new HomeController();
 
-    @Test
-    public void shouldDisplayHomePage() throws Exception {
-        ModelMap model = new ModelMap();
-        String homePage = homeController.displayPage(model);
-
-        assertThat(homePage, is("home"));
-    }
+//    @Test
+//    public void shouldDisplayHomePage() throws Exception {
+//        ModelMap model = new ModelMap();
+//        String homePage = homeController.displayPage(model);
+//
+//        assertThat(homePage, is("home"));
+//    }
 }
