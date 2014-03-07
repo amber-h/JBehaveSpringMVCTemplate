@@ -3,9 +3,7 @@ package org.jbehave.services;
 import org.jbehave.dao.PlayerDao;
 import org.jbehave.mappers.PlayerMapper;
 import org.jbehave.model.Player;
-import org.jbehave.services.impl.PlayerServiceImpl;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mock;
 
@@ -27,10 +25,9 @@ public class PlayerServiceTest {
     @Before
     public void setUp() throws Exception {
         initMocks(this);
-        playerService = new PlayerServiceImpl();
+        playerService = new PlayerService(mockPlayerDao);
     }
 
-    @Ignore
     @Test
     public void shouldReturnPlayer() throws Exception {
         Player playerFromDao = playerDaoGetPlayerShouldReturnPlayerNamed("Amber");
