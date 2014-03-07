@@ -20,6 +20,7 @@ public class SearchController {
     @RequestMapping(value="/search", method= RequestMethod.POST)
     public ModelAndView displaySearchForm(@ModelAttribute("playerInfo") SearchForm searchForm, ModelMap modelMap) {
         modelMap.addAttribute("name", searchForm.getName());
+        modelMap.addAttribute("number", searchForm.getNumber());
 
         return new ModelAndView("searchResults", modelMap);
     }

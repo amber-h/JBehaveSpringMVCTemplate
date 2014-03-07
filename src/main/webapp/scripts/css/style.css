@@ -52,3 +52,15 @@ div #banner {
 #banner p {
     text-align: center;
 }
+
+#playerList{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#playerList table{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}

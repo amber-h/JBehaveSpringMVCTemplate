@@ -12,8 +12,8 @@
 <div id="menu">
     <ul>
         <li>
-            <a href="<c:url value='/' />" >
-            List Players</a>
+            <a href="<c:url value='/' />">
+                List Players</a>
         </li>
         <li>
             <a href="<c:url value="/search" />">Search</a>
@@ -26,7 +26,22 @@
     <img id="banner-image" src="<c:url value='/images/banner.png'/>"/>
 
     <div id="banner">
-        <p>Welcome to the Fabulous Football League Manager!</p>
+        <p>${banner}</p>
+    </div>
+
+    <div id="playerList">
+        <table id="playerTable">
+            <thead><b>Players</b></thead>
+        <tbody>
+        <c:forEach var="player" items="${playerList}">
+            <tr>
+                <td>
+                    <p>${player}</p>
+                </td>
+            </tr>
+        </c:forEach>
+        </tbody>
+        </table>
     </div>
 </div>
 </body>

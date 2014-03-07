@@ -23,7 +23,8 @@
 <div id="contents">
     <img id="banner-image" src="<c:url value='/images/banner.png'/>"/>
 
-    <p>The results of your search for ${name}:</p>
+    <p>The results of your search for ${name} :</p>
+    <p>The results of your search for ${number} :</p>
 
 </div>
 
