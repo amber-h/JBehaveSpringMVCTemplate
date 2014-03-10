@@ -33,6 +33,7 @@
         <table id="playerTable">
             <thead><b>Players</b></thead>
         <tbody>
+
         <c:forEach var="player" items="${playerList}">
             <tr>
                 <td>

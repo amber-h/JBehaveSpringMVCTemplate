@@ -42,6 +42,8 @@ public class HomeController {
         playerList.add("Ehi Aimiuwu");
 
         model.addAttribute("playerList", playerList);
+
+        model.addAttribute("player", new Player("Test Player", "team", 3, 24));
         model.addAttribute("banner", "Welcome to the Fabulous Football League Manager!");
         return "home";
 	}
