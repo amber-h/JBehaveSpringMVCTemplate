@@ -73,10 +73,10 @@ public class SearchControllerTest {
     public void searchByNumberShouldGetResultsFromService() {
         List<Player> players = new ArrayList<Player>();
         ModelMap modelMap = mock(ModelMap.class);
-        when(playerService.findByNumber("number")).thenReturn(players);
+        when(playerService.findByNumber(1)).thenReturn(players);
         searchController.handleSearchByNumber("number", modelMap);
 
-        verify(playerService).findByNumber("number");
+        verify(playerService).findByNumber(1);
         verify(modelMap).addAttribute("results", players);
     }
 }

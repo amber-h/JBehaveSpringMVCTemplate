@@ -30,10 +30,23 @@ public class PlayerServiceTest {
     }
 
     @Test
-    public void searchShouldReturnMatchingPlayer() {
+    public void searchByNameShouldReturnMatchingPlayers() {
         List<Player> players = playerService.findByName("Carol Schofield");
         assertThat(players.size(), is(1));
         assertThat(players.get(0).getName(), is("Carol Schofield"));
+    }
+
+    @Test
+    public void searchShouldFindPlayersByFirstOrLastName() {
+        List<Player> players = playerService.findByName("Carol");
+        assertThat(players.get(0).getName(), is("Carol Schofield"));
+    }
+
+    @Test
+    public void searchByNumberShouldReturnMatchingPlayers() {
+        List<Player> players = playerService.findByNumber(13);
+        assertThat(players.size(), is(2));
+        assertThat(players.get(0).getName(), is("Beccie Magnus"));
     }
 
     @Test

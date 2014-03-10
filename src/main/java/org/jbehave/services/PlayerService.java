@@ -28,14 +28,22 @@ public class PlayerService {
         List<Player> matchingPlayers = new ArrayList<Player>();
 
         for (Player player : players) {
-            if (player.getName().equals(playerName)) {
+            if (player.getName().contains(playerName)) {
                 matchingPlayers.add(player);
             }
         }
         return matchingPlayers;
     }
 
-    public List<Player> findByNumber(String number) {
-        return null;
+    public List<Player> findByNumber(int number) {
+        List<Player> players = LeagueData.getPlayers();
+        List<Player> matchingPlayers = new ArrayList<Player>();
+
+        for (Player player : players) {
+            if (player.getNumber() == number) {
+                matchingPlayers.add(player);
+            }
+        }
+        return matchingPlayers;
     }
 }
