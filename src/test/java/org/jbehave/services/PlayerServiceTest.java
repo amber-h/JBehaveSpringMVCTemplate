@@ -2,6 +2,7 @@ package org.jbehave.services;
 
 import org.jbehave.model.Player;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
@@ -70,4 +71,19 @@ public class PlayerServiceTest {
         List<Player> playersOnATeam = playerService.findByTeam("the bill murrays");
         assertThat(playersOnATeam.get(0).getName(), is("Dannielle Del Rosario"));
     }
+
+    @Test
+    public void shouldReturnEmptyListWhenNoPlayersOlderThan40() {
+        List<Player> playersOlderThan45 = playerService.findOlderThan(45);
+        assertTrue(playersOlderThan45.isEmpty());
+    }
+
+    @Test
+    public void searchOlderThanShouldReturnMatchingPlayers() {
+        List<Player> playersOlderThan40 = playerService.findOlderThan(40);
+        assertThat(playersOlderThan40.size(), is(1));
+        assertThat(playersOlderThan40.get(0).getName(), is("Dannielle Del Rosario"));
+
+    }
+
 }

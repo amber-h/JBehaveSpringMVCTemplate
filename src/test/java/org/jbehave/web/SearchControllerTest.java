@@ -81,6 +81,17 @@ public class SearchControllerTest {
     }
 
     @Test
+    public void searchByOlderThanShouldGetResultsFromService() {
+        List<Player> players = new ArrayList<Player>();
+        ModelMap modelMap = mock(ModelMap.class);
+        when(playerService.findOlderThan(1)).thenReturn(players);
+        searchController.handleSearchOlderThan("1", modelMap);
+
+        verify(playerService).findOlderThan(1);
+        verify(modelMap).addAttribute("results", players);
+    }
+
+    @Test
     public void searchByTeamShouldGetResultsFromService() throws Exception {
         ModelMap modelMap = mock(ModelMap.class);
         List<Player> players = new ArrayList<Player>();
@@ -94,9 +105,9 @@ public class SearchControllerTest {
     @Test
     public void submittingTheSearchByTeamNameShouldReturnTheSearchResultsPage() throws Exception {
         ModelMap modelMap = mock(ModelMap.class);
-        ModelAndView modelAndView = searchController.handleSearchByTeamName("teamName",modelMap);
-        verify(modelMap).addAttribute("teamName","teamName");
-        assertThat(modelAndView.getViewName(),is("searchResults"));
+        ModelAndView modelAndView = searchController.handleSearchByTeamName("teamName", modelMap);
+        verify(modelMap).addAttribute("teamName", "teamName");
+        assertThat(modelAndView.getViewName(), is("searchResults"));
 
     }
 }

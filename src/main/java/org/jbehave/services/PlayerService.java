@@ -54,11 +54,22 @@ public class PlayerService {
         List<Player> playersOnTeam = new ArrayList<Player>();
 
         for (Player player: players){
-            if (StringUtils.containsIgnoreCase(player.getTeam(),teamName)){
+            if (StringUtils.containsIgnoreCase(player.getTeam(), teamName)){
                 playersOnTeam.add(player);
             }
 
         }
         return playersOnTeam;
+    }
+
+    public List<Player> findOlderThan(int age) {
+        List<Player> players = LeagueData.getPlayers();
+        List<Player> matchingPlayers = new ArrayList<Player>();
+        for(Player player : players) {
+            if(player.getAge() > age) {
+                matchingPlayers.add(player);
+            }
+        }
+        return matchingPlayers;
     }
 }
