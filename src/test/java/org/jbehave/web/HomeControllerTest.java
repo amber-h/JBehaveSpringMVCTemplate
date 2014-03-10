@@ -62,7 +62,7 @@ public class HomeControllerTest {
 
     private ArrayList<Coach> coachServiceReturnsCoachListWithCoachNamed(String name) {
         ArrayList<Coach> coaches = new ArrayList<Coach>();
-        coaches.add(new Coach(name));
+        coaches.add(new Coach("Ehi Aimiuwu", "Squirrels", name));
         when(mockCoachService.retrieveCoaches()).thenReturn(coaches);
         return coaches;
     }

@@ -60,6 +60,34 @@
         </tbody>
         </table>
     </div>
+
+    <div id="coachList">
+        <table id="coachTable">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Team</th>
+                <th>Title</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <c:forEach var="coach" items="${coaches}">
+                <tr>
+                    <td>
+                        <p>${coach.name}</p>
+                    </td>
+                    <td>
+                        <p>${coach.team}</p>
+                    </td>
+                    <td>
+                        <p>${coach.title}</p>
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
 </div>
 </body>
 </html>
