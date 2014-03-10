@@ -23,7 +23,7 @@ public class PlayerDaoTest {
     @Before
     public void setUp() throws Exception {
         initMocks(this);
-        playerDao = new PlayerDao(sessionFactory);
+//        playerDao = new PlayerDao(sessionFactory);
     }
 
     @Ignore
@@ -31,7 +31,7 @@ public class PlayerDaoTest {
     public void shouldFindPlayer() throws Exception {
         when(sessionFactory.getCurrentSession()).thenReturn(sessionMock);
         // when(sessionMock.createQuery(...)).thenReturn(...);
-        Player player = playerDao.findPlayer();
+//        Player player = playerDao.findPlayer();
 
     }
 }

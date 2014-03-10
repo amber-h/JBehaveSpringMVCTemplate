@@ -2,25 +2,25 @@ package org.jbehave.model;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name="player")
+//@Entity
+//@Table(name="player")
 public class Player {
 
-    @Id
-    @GeneratedValue
-    @Column(name="player_id")
-    private Long id;
+//    @Id
+//    @GeneratedValue
+//    @Column(name="player_id")
+//    private Long id;
 
-    @Column
+//    @Column
     private String name;
 
-    @Column
+//    @Column
     private String team;
 
-    @Column
+//    @Column
     private int number;
 
-    @Column
+//    @Column
     private int age;
 
     public Player(){
