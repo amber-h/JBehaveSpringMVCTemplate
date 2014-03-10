@@ -17,11 +17,7 @@ public class PlayerService {
     }
 
     public List<Player> retrievePlayers() {
-        List<Player> players = new ArrayList<Player>();
-        players.add(new Player("Dannielle Del Rosario", "The Bill Murrays", 72, 44));
-        players.add(new Player("Beccie Magnus", "Squirrels", 13, 31));
-        players.add(new Player("Carol Schofield", "The Oncelers", 13, 28));
-        return players;
+        return LeagueData.getPlayers();
     }
 
     public List<Player> findByName(String playerName) {

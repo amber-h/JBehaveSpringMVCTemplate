@@ -1,9 +1,10 @@
 package org.jbehave.web;
 
+import org.jbehave.model.Coach;
 import org.jbehave.model.Player;
+import org.jbehave.services.CoachService;
 import org.jbehave.services.PlayerService;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.springframework.ui.Model;
@@ -24,11 +25,13 @@ public class SearchControllerTest {
 
     @Mock
     private PlayerService playerService;
+    @Mock
+    private CoachService coachService;
 
     @Before
     public void setUp() {
         initMocks(this);
-        searchController = new SearchController(playerService);
+        searchController = new SearchController(playerService, coachService);
     }
 
     @Test
@@ -105,9 +108,23 @@ public class SearchControllerTest {
     @Test
     public void submittingTheSearchByTeamNameShouldReturnTheSearchResultsPage() throws Exception {
         ModelMap modelMap = mock(ModelMap.class);
+
         ModelAndView modelAndView = searchController.handleSearchByTeamName("teamName", modelMap);
         verify(modelMap).addAttribute("teamName", "teamName");
         assertThat(modelAndView.getViewName(), is("searchResults"));
 
+
+    }
+
+    @Test
+    public void searchByTeamShouldGetCoachLeagueData() throws Exception {
+        ModelMap modelMap = mock(ModelMap.class);
+        List<Coach> coaches = new ArrayList<Coach>();
+        when(coachService.findByTeam("teamName")).thenReturn(coaches);
+        searchController.handleSearchByTeamName("teamName", modelMap);
+
+        verify(coachService).findByTeam("teamName");
+
+        verify(modelMap).addAttribute("coachResults",coaches);
     }
 }

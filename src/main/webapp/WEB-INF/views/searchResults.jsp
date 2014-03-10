@@ -23,6 +23,10 @@
 <div id="contents">
     <img id="banner-image" src="<c:url value='/images/banner.png'/>"/>
 
+
+
+
+    <h2>Players</h2>
     <c:choose>
     <c:when test="${results.size()>0}">
     <div id="playerList">
@@ -62,6 +66,48 @@
             <p>Your search returned no results.</p>
         </div>
     </c:otherwise>
+    </c:choose>
+
+    <c:choose>
+    <c:when test="${teamName != null}">
+    <h2>Coaches</h2>
+    <c:choose>
+        <c:when test="${coachResults.size()>0}">
+            <div id="coachList">
+                <table id="coachTable">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Team</th>
+                        <th>Title</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <c:forEach var="coach" items="${coachResults}">
+                        <tr>
+                            <td>
+                                <p>${coach.name}</p>
+                            </td>
+                            <td>
+                                <p>${coach.team}</p>
+                            </td>
+                            <td>
+                                <p>${coach.title}</p>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </div>
+        </c:when>
+        <c:otherwise>
+            <div id="noResultsMessage">
+                <p>Your search returned no results.</p>
+            </div>
+        </c:otherwise>
+    </c:choose>
+    </c:when>
     </c:choose>
 
 </div>

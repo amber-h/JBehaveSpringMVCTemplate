@@ -1,5 +1,6 @@
 package org.jbehave.services;
 
+import org.jbehave.model.Coach;
 import org.jbehave.model.Player;
 import org.junit.Before;
 import org.junit.Ignore;

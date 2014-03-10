@@ -1,6 +1,8 @@
 package org.jbehave.web;
 
+import org.jbehave.model.Coach;
 import org.jbehave.model.Player;
+import org.jbehave.services.CoachService;
 import org.jbehave.services.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,10 +21,12 @@ import java.util.List;
 public class SearchController {
 
     private PlayerService playerService;
+    private CoachService coachService;
 
     @Autowired
-    public SearchController(PlayerService playerService) {
+    public SearchController(PlayerService playerService, CoachService coachService) {
         this.playerService = playerService;
+        this.coachService = coachService;
     }
 
     @RequestMapping(value="/search", method= RequestMethod.GET)
@@ -55,7 +59,10 @@ public class SearchController {
         List<Player> playersOnATeam = playerService.findByTeam(teamName);
         modelMap.addAttribute("teamName", teamName);
         modelMap.addAttribute("results",playersOnATeam);
-        return new ModelAndView("searchResults", modelMap);
+
+        List<Coach> coachesOnATeam = coachService.findByTeam(teamName);
+        modelMap.addAttribute("coachResults", coachesOnATeam);
+       return new ModelAndView("searchResults", modelMap);
     }
     @RequestMapping(value = "/search", params = "age", method = RequestMethod.POST)
     public ModelAndView handleSearchOlderThan(@RequestParam("age") String age, ModelMap modelMap) {
