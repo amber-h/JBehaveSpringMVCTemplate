@@ -31,7 +31,14 @@
 
     <div id="playerList">
         <table id="playerTable">
-            <thead><b>Players</b></thead>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Team</th>
+                    <th>Number</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
         <tbody>
 
         <c:forEach var="player" items="${players}">
