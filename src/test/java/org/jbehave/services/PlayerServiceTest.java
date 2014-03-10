@@ -4,9 +4,11 @@ import org.jbehave.model.Player;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.any;
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.MockitoAnnotations.initMocks;
 
 public class PlayerServiceTest {
@@ -18,5 +20,13 @@ public class PlayerServiceTest {
         initMocks(this);
         playerService = new PlayerService();
     }
+
+    @Test
+    public void searchForNonExistentPlayerReturnsEmptyList() {
+        List<Player> players = playerService.findByName("Smith");
+        assertTrue(players.isEmpty());
+    }
+
+
 
 }

@@ -1,5 +1,6 @@
 package org.jbehave.services;
 
+import org.jbehave.model.LeagueData;
 import org.jbehave.model.Player;
 import org.springframework.stereotype.Service;
 
@@ -20,5 +21,17 @@ public class PlayerService {
         players.add(new Player("Beccie Magnus", "Squirrels", 13, 31));
         players.add(new Player("Carol Schofield", "The Oncelers", 13, 28));
         return players;
+    }
+
+    public List<Player> findByName(String playerName) {
+        List<Player> players = LeagueData.getPlayers();
+        List<Player> matchingPlayers = new ArrayList<Player>();
+
+        for (Player player : players) {
+            if (player.getName().equals(playerName)) {
+                matchingPlayers.add(player);
+            }
+        }
+        return matchingPlayers;
     }
 }
