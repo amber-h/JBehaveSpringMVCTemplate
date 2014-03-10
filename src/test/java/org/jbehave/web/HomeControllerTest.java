@@ -10,6 +10,7 @@ import org.springframework.ui.ModelMap;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
@@ -26,7 +27,6 @@ public class HomeControllerTest {
         model = new ModelMap();
     }
 
-
     @Test
     public void shouldDisplayHomePage() throws Exception {
         String homePage = homeController.displayPage(model);
@@ -35,19 +35,11 @@ public class HomeControllerTest {
         assertThat(homePage, is("home"));
     }
 
-    @Ignore
     @Test
-    public void shouldAddPlayerToModel() throws Exception {
-        Player player = playerServiceShouldReturn(new Player().setName("Amber Houle"));
-
+    public void shouldRetrievePlayersFromPlayerService() {
         homeController.displayPage(model);
-
-        assertThat((Player) model.get("player"), is(player));
+        verify(mockPlayerService).retrievePlayers();
     }
 
-    private Player playerServiceShouldReturn(Player player) {
-        when(mockPlayerService.getPlayer())
-                .thenReturn(player);
-        return player;
-    }
+
 }
