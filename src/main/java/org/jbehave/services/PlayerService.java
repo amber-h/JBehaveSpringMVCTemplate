@@ -1,5 +1,6 @@
 package org.jbehave.services;
 
+import org.apache.commons.lang.StringUtils;
 import org.jbehave.model.LeagueData;
 import org.jbehave.model.Player;
 import org.springframework.stereotype.Service;
@@ -53,7 +54,7 @@ public class PlayerService {
         List<Player> playersOnTeam = new ArrayList<Player>();
 
         for (Player player: players){
-            if (player.getTeam().equals(teamName)){
+            if (StringUtils.containsIgnoreCase(player.getTeam(),teamName)){
                 playersOnTeam.add(player);
             }
 

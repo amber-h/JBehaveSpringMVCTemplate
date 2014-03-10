@@ -63,6 +63,11 @@ public class PlayerServiceTest {
     public void shouldFindPlayersByTeamName(){
         List<Player> playersOnATeam = playerService.findByTeam("The Bill Murrays");
         assertThat(playersOnATeam.get(0).getName(), is("Dannielle Del Rosario"));
+    }
 
+    @Test
+    public void shouldFindPlayerByTeamNameRegardlessOfCase() throws Exception {
+        List<Player> playersOnATeam = playerService.findByTeam("the bill murrays");
+        assertThat(playersOnATeam.get(0).getName(), is("Dannielle Del Rosario"));
     }
 }
