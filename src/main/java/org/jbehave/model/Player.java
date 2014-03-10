@@ -14,7 +14,20 @@ public class Player {
         this.age = age;
     }
 
+
     public String getName() {
         return name;
+    }
+
+    public String getTeam() {
+        return team;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public int getAge() {
+        return age;
     }
 }
