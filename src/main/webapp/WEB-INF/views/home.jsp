@@ -31,13 +31,29 @@
 
     <div id="playerList">
         <table id="playerTable">
-            <thead><b>Players</b></thead>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Team</th>
+                    <th>Number</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
         <tbody>
 
-        <c:forEach var="player" items="${playerList}">
+        <c:forEach var="player" items="${players}">
             <tr>
                 <td>
-                    <p>${player}</p>
+                    <p>${player.name}</p>
+                </td>
+                <td>
+                    <p>${player.team}</p>
+                </td>
+                <td>
+                    <p>${player.number}</p>
+                </td>
+                <td>
+                    <p>${player.age}</p>
                 </td>
             </tr>
         </c:forEach>

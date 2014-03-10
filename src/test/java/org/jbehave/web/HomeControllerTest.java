@@ -8,6 +8,8 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.springframework.ui.ModelMap;
 
+import java.util.ArrayList;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
@@ -37,8 +39,20 @@ public class HomeControllerTest {
 
     @Test
     public void shouldRetrievePlayersFromPlayerService() {
+        ArrayList<Player> players = playerServiceReturnsListWithPlayerNamed("Some Player");
+
         homeController.displayPage(model);
+
         verify(mockPlayerService).retrievePlayers();
+        assertThat((ArrayList<Player>) model.get("players"), is(players) );
+    }
+
+    private ArrayList<Player> playerServiceReturnsListWithPlayerNamed(String name) {
+        Player player = new Player(name, "Team", 0, 0);
+        ArrayList<Player> players = new ArrayList<Player>();
+        players.add(player);
+        when(mockPlayerService.retrievePlayers()).thenReturn(players);
+        return players;
     }
 
 
