@@ -1,9 +1,10 @@
 package org.jbehave.web;
 
+import org.jbehave.model.Coach;
 import org.jbehave.model.Player;
+import org.jbehave.services.CoachService;
 import org.jbehave.services.PlayerService;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.springframework.ui.ModelMap;
@@ -21,11 +22,13 @@ public class HomeControllerTest {
     private HomeController homeController;
     @Mock
     private PlayerService mockPlayerService;
+    @Mock
+    private CoachService mockCoachService;
 
     @Before
     public void setUp() throws Exception {
         initMocks(this);
-        homeController = new HomeController(mockPlayerService);
+        homeController = new HomeController(mockPlayerService, mockCoachService);
         model = new ModelMap();
     }
 
@@ -45,6 +48,23 @@ public class HomeControllerTest {
 
         verify(mockPlayerService).retrievePlayers();
         assertThat((ArrayList<Player>) model.get("players"), is(players) );
+    }
+
+    @Test
+    public void shouldRetrieveCoachesFromCoachService(){
+        ArrayList<Coach> coaches = coachServiceReturnsCoachListWithCoachNamed("Coach Name");
+
+        homeController.displayPage(model);
+
+        verify(mockCoachService).retrieveCoaches();
+        assertThat((ArrayList<Coach>) model.get("coaches"), is(coaches));
+    }
+
+    private ArrayList<Coach> coachServiceReturnsCoachListWithCoachNamed(String name) {
+        ArrayList<Coach> coaches = new ArrayList<Coach>();
+        coaches.add(new Coach(name));
+        when(mockCoachService.retrieveCoaches()).thenReturn(coaches);
+        return coaches;
     }
 
     private ArrayList<Player> playerServiceReturnsListWithPlayerNamed(String name) {

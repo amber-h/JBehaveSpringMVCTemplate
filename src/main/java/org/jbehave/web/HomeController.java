@@ -1,6 +1,8 @@
 package org.jbehave.web;
 
+import org.jbehave.model.Coach;
 import org.jbehave.model.Player;
+import org.jbehave.services.CoachService;
 import org.jbehave.services.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,10 +21,12 @@ import java.util.List;
 public class HomeController {
 
     private PlayerService playerService;
+    private CoachService coachService;
 
     @Autowired
-    public HomeController(PlayerService playerService) {
+    public HomeController(PlayerService playerService, CoachService coachService) {
         this.playerService = playerService;
+        this.coachService = coachService;
     }
 
     /**
@@ -33,6 +37,9 @@ public class HomeController {
 
         List<Player> players = playerService.retrievePlayers();
         model.addAttribute("players", players);
+
+        List<Coach> coaches = coachService.retrieveCoaches();
+        model.addAttribute("coaches", coaches);
 
         model.addAttribute("banner", "Welcome to the Fabulous Football League Manager!");
         return "home";
