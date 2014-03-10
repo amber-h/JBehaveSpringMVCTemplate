@@ -42,8 +42,9 @@ public class SearchController {
 
     @RequestMapping(value="/search", params="number", method= RequestMethod.POST)
     public ModelAndView handleSearchByNumber(@RequestParam("number") String number, ModelMap modelMap) {
-        List<Player> matchingPlayers = playerService.findByNumber(Integer.parseInt(number));
-        modelMap.addAttribute("number", number);
+        int searchNumber = Integer.parseInt(number);
+        List<Player> matchingPlayers = playerService.findByNumber(searchNumber);
+        modelMap.addAttribute("number", searchNumber);
         modelMap.addAttribute("results",matchingPlayers);
 
         return new ModelAndView("searchResults", modelMap);

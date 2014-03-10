@@ -52,9 +52,9 @@ public class SearchControllerTest {
     @Test
     public void submittingSearchByNumberShouldReturnSearchResultsPage() {
         ModelMap modelMap = mock(ModelMap.class);
-        ModelAndView modelAndView = searchController.handleSearchByNumber("number", modelMap);
+        ModelAndView modelAndView = searchController.handleSearchByNumber("1", modelMap);
 
-        verify(modelMap).addAttribute("number", "number");
+        verify(modelMap).addAttribute("number", 1);
         assertThat(modelAndView.getViewName(), is("searchResults"));
     }
 
@@ -74,7 +74,7 @@ public class SearchControllerTest {
         List<Player> players = new ArrayList<Player>();
         ModelMap modelMap = mock(ModelMap.class);
         when(playerService.findByNumber(1)).thenReturn(players);
-        searchController.handleSearchByNumber("number", modelMap);
+        searchController.handleSearchByNumber("1", modelMap);
 
         verify(playerService).findByNumber(1);
         verify(modelMap).addAttribute("results", players);
