@@ -52,9 +52,9 @@ public class SearchControllerTest {
     @Test
     public void submittingSearchByNumberShouldReturnSearchResultsPage() {
         ModelMap modelMap = mock(ModelMap.class);
-        ModelAndView modelAndView = searchController.handleSearchByNumber("number", modelMap);
+        ModelAndView modelAndView = searchController.handleSearchByNumber("1", modelMap);
 
-        verify(modelMap).addAttribute("number", "number");
+        verify(modelMap).addAttribute("number", 1);
         assertThat(modelAndView.getViewName(), is("searchResults"));
     }
 
@@ -66,7 +66,7 @@ public class SearchControllerTest {
         searchController.handleSearchByName("name", modelMap);
 
         verify(playerService).findByName("name");
-        verify(modelMap).addAttribute("results",players);
+        verify(modelMap).addAttribute("results", players);
     }
 
     @Test
@@ -74,9 +74,40 @@ public class SearchControllerTest {
         List<Player> players = new ArrayList<Player>();
         ModelMap modelMap = mock(ModelMap.class);
         when(playerService.findByNumber(1)).thenReturn(players);
-        searchController.handleSearchByNumber("number", modelMap);
+        searchController.handleSearchByNumber("1", modelMap);
 
         verify(playerService).findByNumber(1);
         verify(modelMap).addAttribute("results", players);
+    }
+
+    @Test
+    public void searchByOlderThanShouldGetResultsFromService() {
+        List<Player> players = new ArrayList<Player>();
+        ModelMap modelMap = mock(ModelMap.class);
+        when(playerService.findOlderThan(1)).thenReturn(players);
+        searchController.handleSearchOlderThan("1", modelMap);
+
+        verify(playerService).findOlderThan(1);
+        verify(modelMap).addAttribute("results", players);
+    }
+
+    @Test
+    public void searchByTeamShouldGetResultsFromService() throws Exception {
+        ModelMap modelMap = mock(ModelMap.class);
+        List<Player> players = new ArrayList<Player>();
+        when(playerService.findByTeam("teamName")).thenReturn(players);
+        searchController.handleSearchByTeamName("teamName", modelMap);
+
+        verify(playerService).findByTeam("teamName");
+        verify(modelMap).addAttribute("results", players);
+    }
+
+    @Test
+    public void submittingTheSearchByTeamNameShouldReturnTheSearchResultsPage() throws Exception {
+        ModelMap modelMap = mock(ModelMap.class);
+        ModelAndView modelAndView = searchController.handleSearchByTeamName("teamName", modelMap);
+        verify(modelMap).addAttribute("teamName", "teamName");
+        assertThat(modelAndView.getViewName(), is("searchResults"));
+
     }
 }

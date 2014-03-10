@@ -20,4 +20,10 @@ public class ScreenApi {
         String message = webDriver.findElement(By.id("banner")).getText();
         assertThat(message, is("Welcome to the Fabulous Football League Manager!"));
     }
+
+    public void showsPlayersInfo() {
+        webDriver.get("http://localhost:8080");
+    String playerHeaders = webDriver.findElement(By.tagName("thead")).getText();
+        assertThat(playerHeaders, is("Name Team Number Age"));
+    }
 }

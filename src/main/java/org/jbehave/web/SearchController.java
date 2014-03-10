@@ -42,11 +42,28 @@ public class SearchController {
 
     @RequestMapping(value="/search", params="number", method= RequestMethod.POST)
     public ModelAndView handleSearchByNumber(@RequestParam("number") String number, ModelMap modelMap) {
-        List<Player> matchingPlayers = playerService.findByNumber(Integer.parseInt(number));
-        modelMap.addAttribute("number", number);
+        int searchNumber = Integer.parseInt(number);
+        List<Player> matchingPlayers = playerService.findByNumber(searchNumber);
+        modelMap.addAttribute("number", searchNumber);
         modelMap.addAttribute("results",matchingPlayers);
 
         return new ModelAndView("searchResults", modelMap);
     }
 
+    @RequestMapping(value = "/search", params = "teamName", method = RequestMethod.POST)
+    public ModelAndView handleSearchByTeamName(@RequestParam("teamName") String teamName, ModelMap modelMap) {
+        List<Player> playersOnATeam = playerService.findByTeam(teamName);
+        modelMap.addAttribute("teamName", teamName);
+        modelMap.addAttribute("results",playersOnATeam);
+        return new ModelAndView("searchResults", modelMap);
+    }
+    @RequestMapping(value = "/search", params = "age", method = RequestMethod.POST)
+    public ModelAndView handleSearchOlderThan(@RequestParam("age") String age, ModelMap modelMap) {
+        int searchAge = Integer.parseInt(age);
+        List<Player> matchingPlayers = playerService.findOlderThan(searchAge);
+        modelMap.addAttribute("age", searchAge);
+        modelMap.addAttribute("results",matchingPlayers);
+
+        return new ModelAndView("searchResults", modelMap);
+    }
 }
