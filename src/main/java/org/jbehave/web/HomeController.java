@@ -32,18 +32,8 @@ public class HomeController {
 	public String displayPage(ModelMap model) {
 
         List<Player> players = playerService.retrievePlayers();
-        model.addAttribute(players);
+        model.addAttribute("players", players);
 
-        List<String> playerList = new ArrayList();
-        playerList.add("Beccie Magnus");
-        playerList.add("Carol Schofield");
-        playerList.add("Danie Banks");
-        playerList.add("Amber Houle");
-        playerList.add("Ehi Aimiuwu");
-
-        model.addAttribute("playerList", playerList);
-
-        model.addAttribute("player", new Player("Test Player", "team", 3, 24));
         model.addAttribute("banner", "Welcome to the Fabulous Football League Manager!");
         return "home";
 	}

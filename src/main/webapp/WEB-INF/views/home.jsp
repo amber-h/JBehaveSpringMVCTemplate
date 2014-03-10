@@ -34,10 +34,19 @@
             <thead><b>Players</b></thead>
         <tbody>
 
-        <c:forEach var="player" items="${playerList}">
+        <c:forEach var="player" items="${players}">
             <tr>
                 <td>
-                    <p>${player}</p>
+                    <p>${player.name}</p>
+                </td>
+                <td>
+                    <p>${player.team}</p>
+                </td>
+                <td>
+                    <p>${player.number}</p>
+                </td>
+                <td>
+                    <p>${player.age}</p>
                 </td>
             </tr>
         </c:forEach>
