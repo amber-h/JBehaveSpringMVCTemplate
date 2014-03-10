@@ -34,4 +34,8 @@ public class PlayerService {
         }
         return matchingPlayers;
     }
+
+    public List<Player> findByNumber(String number) {
+        return null;
+    }
 }

@@ -1,5 +1,6 @@
 package org.jbehave.web;
 
+import org.jbehave.model.Player;
 import org.jbehave.services.PlayerService;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -8,6 +9,9 @@ import org.mockito.Mock;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -24,7 +28,7 @@ public class SearchControllerTest {
     @Before
     public void setUp() {
         initMocks(this);
-        searchController = new SearchController();
+        searchController = new SearchController(playerService);
     }
 
     @Test
@@ -54,13 +58,25 @@ public class SearchControllerTest {
         assertThat(modelAndView.getViewName(), is("searchResults"));
     }
 
-    @Ignore
     @Test
     public void searchByNameShouldGetResultsFromService() {
+        List<Player> players = new ArrayList<Player>();
         ModelMap modelMap = mock(ModelMap.class);
+        when(playerService.findByName("name")).thenReturn(players);
         searchController.handleSearchByName("name", modelMap);
 
         verify(playerService).findByName("name");
-        verify(modelMap).addAttribute("results");
+        verify(modelMap).addAttribute("results",players);
+    }
+
+    @Test
+    public void searchByNumberShouldGetResultsFromService() {
+        List<Player> players = new ArrayList<Player>();
+        ModelMap modelMap = mock(ModelMap.class);
+        when(playerService.findByNumber("number")).thenReturn(players);
+        searchController.handleSearchByNumber("number", modelMap);
+
+        verify(playerService).findByNumber("number");
+        verify(modelMap).addAttribute("results", players);
     }
 }
