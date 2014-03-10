@@ -55,11 +55,12 @@ div #banner {
 }
 
 #playerList{
-    float: left;
+    display: inline-block;
+    margin-right: 50px;
 }
 
 #coachList{
-    float:right;
+    display: inline-block;
 }
 
 table{
@@ -67,6 +68,7 @@ table{
     margin-left: auto;
     margin-right: auto;
     border: 1px solid #DDD;
+    margin-bottom: 20px;
 }
 
 #playerList td{
