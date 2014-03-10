@@ -1,3 +1,5 @@
+
+
 * {
     background-color: #333;
     font-family: 'Roboto', sans-serif;
@@ -30,7 +32,6 @@ body {
 #contents {
     display:inline-block;
     width:80%;
-    height: 100%;
     align-content: center;
     margin: auto;
 }
@@ -53,18 +54,40 @@ div #banner {
     text-align: center;
 }
 
-#playerList, #coachList{
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+#playerList{
+    float: left;
+}
+
+#coachList{
+    float:right;
 }
 
 table{
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    border: 1px solid #DDD;
 }
 
-#playerList table th,td {
-    width: 12em;
+#playerList td{
+    width: 25%;
+}
+
+
+#coachList td{
+    width: 33%;
+}
+
+thead tr {
+    background: #DDD;
+}
+
+th, td {
+    padding: 15px 10px;
+}
+
+#listContainer{
+    width: auto;
+    margin-left: 50px;
+    margin-right: 50px;
 }

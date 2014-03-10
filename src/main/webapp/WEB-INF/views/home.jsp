@@ -29,7 +29,9 @@
         <p>${banner}</p>
     </div>
 
+    <div id="listContainer">
     <div id="playerList">
+        <h1>Players</h1>
         <table id="playerTable">
             <thead>
                 <tr>
@@ -62,6 +64,7 @@
     </div>
 
     <div id="coachList">
+        <h1>Coaches</h1>
         <table id="coachTable">
             <thead>
             <tr>
@@ -87,6 +90,7 @@
             </c:forEach>
             </tbody>
         </table>
+    </div>
     </div>
 </div>
 </body>
