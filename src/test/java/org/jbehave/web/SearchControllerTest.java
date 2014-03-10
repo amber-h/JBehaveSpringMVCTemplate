@@ -79,4 +79,13 @@ public class SearchControllerTest {
         verify(playerService).findByNumber(1);
         verify(modelMap).addAttribute("results", players);
     }
+
+    @Ignore
+    @Test
+    public void searchByTeamShouldGetResultsFromService() throws Exception {
+        ModelMap modelMap = mock(ModelMap.class);
+        searchController.handleSearchByTeamName("teamName", modelMap);
+
+        verify(playerService).findByTeam("teamName");
+    }
 }

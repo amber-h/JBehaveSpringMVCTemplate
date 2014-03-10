@@ -49,4 +49,7 @@ public class SearchController {
         return new ModelAndView("searchResults", modelMap);
     }
 
+    public void handleSearchByTeamName(String teamName, ModelMap modelMap) {
+
+    }
 }
