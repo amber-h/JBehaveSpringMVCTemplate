@@ -23,10 +23,14 @@
 <div id="contents">
     <img id="banner-image" src="<c:url value='/images/banner.png'/>"/>
 
-    <form action="/search" method="post" modelAttribute="playerInfo">
+    <form action="search" method="post">
         Player Name: <input type="text" name="name"><br>
-        Number: <input type="text" name="number"><br>
         <input type="submit" value="Submit">
+    </form>
+
+    <form action="search" method="post" >
+        Number: <input type="text" name="number"><br>
+        <input type="submit" value="submit">
     </form>
 
 </div>

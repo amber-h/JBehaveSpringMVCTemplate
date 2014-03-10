@@ -29,7 +29,12 @@ public class PlayerServiceTest {
         assertTrue(players.isEmpty());
     }
 
-
+    @Test
+    public void searchShouldReturnMatchingPlayer() {
+        List<Player> players = playerService.findByName("Carol Schofield");
+        assertThat(players.size(), is(1));
+        assertThat(players.get(0).getName(), is("Carol Schofield"));
+    }
 
     @Test
     public void shouldAddPlayersToPlayerList() throws Exception {
