@@ -46,4 +46,18 @@ public class PlayerService {
         }
         return matchingPlayers;
     }
+
+
+    public List<Player> findByTeam(String teamName) {
+        List<Player> players = LeagueData.getPlayers();
+        List<Player> playersOnTeam = new ArrayList<Player>();
+
+        for (Player player: players){
+            if (player.getTeam().equals(teamName)){
+                playersOnTeam.add(player);
+            }
+
+        }
+        return playersOnTeam;
+    }
 }

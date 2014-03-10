@@ -58,4 +58,11 @@ public class PlayerServiceTest {
         assertThat(playerService.retrievePlayers().get(0).getNumber(), is(player.getNumber()));
         assertThat(playerService.retrievePlayers().get(0).getAge(), is(player.getAge()));
     }
+
+    @Test
+    public void shouldFindPlayersByTeamName(){
+        List<Player> playersOnATeam = playerService.findByTeam("The Bill Murrays");
+        assertThat(playersOnATeam.get(0).getName(), is("Dannielle Del Rosario"));
+
+    }
 }

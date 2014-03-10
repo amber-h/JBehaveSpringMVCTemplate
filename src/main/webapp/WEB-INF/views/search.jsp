@@ -33,6 +33,11 @@
         <input type="submit" value="submit">
     </form>
 
+    <form action="search" method="post">
+        Team Name: <input type ="text" name="teamName"><br>
+        <input type="submit" value="submit">
+    </form>
+
 </div>
 
 

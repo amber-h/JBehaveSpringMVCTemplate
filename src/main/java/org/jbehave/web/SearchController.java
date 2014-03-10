@@ -50,4 +50,11 @@ public class SearchController {
         return new ModelAndView("searchResults", modelMap);
     }
 
+    @RequestMapping(value = "/search", params = "teamName", method = RequestMethod.POST)
+    public ModelAndView handleSearchByTeamName(@RequestParam("teamName") String teamName, ModelMap modelMap) {
+       List<Player> playersOnATeam = playerService.findByTeam(teamName);
+        modelMap.addAttribute("teamName", teamName);
+        modelMap.addAttribute("results",playersOnATeam);
+       return new ModelAndView("searchResults", modelMap);
+    }
 }
