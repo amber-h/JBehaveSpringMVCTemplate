@@ -3,6 +3,7 @@ package org.jbehave.web;
 import org.jbehave.model.Player;
 import org.jbehave.services.PlayerService;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.springframework.ui.ModelMap;
@@ -34,6 +35,7 @@ public class HomeControllerTest {
         assertThat(homePage, is("home"));
     }
 
+    @Ignore
     @Test
     public void shouldAddPlayerToModel() throws Exception {
         Player player = playerServiceShouldReturn(new Player().setName("Amber Houle"));

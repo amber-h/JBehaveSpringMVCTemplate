@@ -1,5 +1,6 @@
 package org.jbehave.web;
 
+import org.jbehave.model.Player;
 import org.jbehave.services.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,7 +37,12 @@ public class HomeController {
         playerList.add("Amber Houle");
         playerList.add("Ehi Aimiuwu");
 
-        model.addAttribute("player", playerService.getPlayer());
+        ArrayList<Player> playersList = new ArrayList();
+        playersList.add(new Player("Dannielle Del Rosario", "The Bill Murrays", 72, 44));
+        playersList.add(new Player("Beccie Magnus", "Squirrels", 13, 31));
+        playersList.add(new Player("Carol Schofield", "The Oncelers", 13, 28));
+
+        model.addAttribute("playerList", playerList);
         model.addAttribute("banner", "Welcome to the Fabulous Football League Manager!");
         return "home";
 	}

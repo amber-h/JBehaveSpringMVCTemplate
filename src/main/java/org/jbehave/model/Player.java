@@ -23,6 +23,17 @@ public class Player {
     @Column
     private int age;
 
+    public Player(){
+
+    }
+
+    public Player(String name, String team, int number, int age) {
+        this.name = name;
+        this.team = team;
+        this.number = number;
+        this.age = age;
+    }
+
     public Player setName(String name) {
         this.name = name;
         return this;

@@ -16,8 +16,8 @@ public class PlayerDao {
     }
 
     public Player findPlayer() {
-//        sessionFactory.getCurrentSession().createQuery(
-//                "from Player");
+        sessionFactory.getCurrentSession().createQuery(
+                "from Player");
         return null;
     }
 
