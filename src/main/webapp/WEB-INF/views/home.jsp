@@ -10,16 +10,7 @@
 <body>
 
 <div id="menu">
-    <ul>
-        <li>
-            <a href="<c:url value='/' />">
-                List Players</a>
-        </li>
-        <li>
-            <a href="<c:url value="/search" />">Search</a>
-        </li>
-    </ul>
-
+    <%@ include file="snippets/menuSnippet.jsp" %>
 </div>
 
 <div id="contents">

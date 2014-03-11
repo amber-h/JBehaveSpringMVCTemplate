@@ -87,4 +87,10 @@ public class PlayerServiceTest {
         assertThat(playersOlderThan40.get(0).getName(), is("Dannielle Del Rosario"));
 
     }
+
+    @Test
+    public void shouldChangePlayerTeamWhenPlayerIsTraded() {
+        playerService.trade(player, "The Oncelers");
+        assertThat(player.getTeam(), is("The Oncelers"));
+    }
 }
