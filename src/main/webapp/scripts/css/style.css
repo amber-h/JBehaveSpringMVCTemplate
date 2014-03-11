@@ -42,14 +42,12 @@ body {
     width: 1000px;
     align-content: center;
     margin: 0px auto;
+    padding-bottom: 20px;
+    background-color: #FFF;
 }
 
 #banner-image {
     width:100%;
-}
-
-#contents {
-    background-color: #FFF;
 }
 
 div #banner {
@@ -87,14 +85,14 @@ table{
     /* margin-bottom: 20px; */
 }
 
-table tbody tr td a p {
+.player-name {
     color: #FFF;
     background-color: #ff6c59;
     border: 1px solid;
     border-radius: 10px;
     padding: 11px;
 }
-table tbody tr td a p:hover {
+.player-name:hover {
     background-color: #ff9a8f;
 }
 
@@ -122,5 +120,5 @@ th, td {
     width: 1000px;
     margin: auto;
     /* margin-right: 50px; */
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
 }

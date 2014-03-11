@@ -46,7 +46,7 @@
 
             <tr>
                 <td>
-                    <a href="/"><p>${player.name}</p></a>
+                    <a href="/"><p class="player-name">${player.name}</p></a>
                 </td>
                 <td>
                     <p>${player.team}</p>
@@ -78,7 +78,7 @@
             <c:forEach var="coach" items="${coaches}">
                 <tr>
                     <td>
-                        <a href="/"><p>${coach.name}</p></a>
+                        <a href="/"><p class="player-name">${coach.name}</p></a>
                     </td>
                     <td>
                         <p>${coach.team}</p>

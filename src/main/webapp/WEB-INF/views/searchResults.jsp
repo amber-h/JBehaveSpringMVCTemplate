@@ -26,10 +26,10 @@
 
 
 
-    <h2>Players</h2>
     <c:choose>
     <c:when test="${results.size()>0}">
     <div id="playerList">
+    <h1>Players</h1>
         <table id="playerTable">
             <thead>
             <tr>
@@ -44,7 +44,7 @@
             <c:forEach var="player" items="${results}">
                 <tr>
                     <td>
-                        <p>${player.name}</p>
+                        <p class="player-name">${player.name}</p>
                     </td>
                     <td>
                         <p>${player.team}</p>
@@ -87,7 +87,7 @@
                     <c:forEach var="coach" items="${coachResults}">
                         <tr>
                             <td>
-                                <p>${coach.name}</p>
+                                <p class="player-name">${coach.name}</p>
                             </td>
                             <td>
                                 <p>${coach.team}</p>
