@@ -8,28 +8,18 @@
     <title>Football Manager</title>
 </head>
 <body>
-<div id="menu">
-    <ul>
-        <li>
-            <a href="<c:url value='/' />">
-                List Players</a>
-        </li>
-        <li>
-            <a href="<c:url value="/search" />">Search</a>
-        </li>
-    </ul>
+<%@ include file="snippets/menuSnippet.jsp" %>
 
-</div>
 <div id="contents">
     <img id="banner-image" src="<c:url value='/images/banner.png'/>"/>
 
 
 
 
-    <h2>Players</h2>
     <c:choose>
     <c:when test="${results.size()>0}">
     <div id="playerList">
+    <h1>Players</h1>
         <table id="playerTable">
             <thead>
             <tr>
@@ -44,7 +34,7 @@
             <c:forEach var="player" items="${results}">
                 <tr>
                     <td>
-                        <p>${player.name}</p>
+                        <p class="player-name">${player.name}</p>
                     </td>
                     <td>
                         <p>${player.team}</p>
@@ -87,7 +77,7 @@
                     <c:forEach var="coach" items="${coachResults}">
                         <tr>
                             <td>
-                                <p>${coach.name}</p>
+                                <p class="player-name">${coach.name}</p>
                             </td>
                             <td>
                                 <p>${coach.team}</p>

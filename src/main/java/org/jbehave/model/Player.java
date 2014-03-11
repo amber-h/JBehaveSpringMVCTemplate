@@ -29,4 +29,8 @@ public class Player {
     public int getAge() {
         return age;
     }
+
+    public void setTeam(String newTeam) {
+        team = newTeam;
+    }
 }

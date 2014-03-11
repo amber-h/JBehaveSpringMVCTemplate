@@ -83,4 +83,8 @@ public class PlayerService {
         }
         return matchingPlayers;
     }
+
+    public void trade(Player player, String newTeam) {
+        player.setTeam(newTeam);
+    }
 }
