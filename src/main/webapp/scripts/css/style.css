@@ -1,22 +1,32 @@
 
 
 * {
-    background-color: #333;
+    /* background-color: #333; */
     font-family: 'Roboto', sans-serif;
 }
 
 body {
     margin: 0px;
+    background-color: #333;
+    background-image: url("/images/noise.png");
 }
 
-#menu, #menu * {
-    background-color: #FFF;
+#menu * {
+    background-color: inherit;
 }
 
 #menu {
-    display:inline-block;
-    width:10%;
+    position: absolute;
+    top: 70px;
+    /* display:inline-block; */
+    width: 140px;
+    background-color: #FFF;
     vertical-align:top;
+    /* margin-top: 70px; */
+    border: 1px solid #FFF;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 24px 0px;
 }
 
 #menu ul {
@@ -30,17 +40,17 @@ body {
 }
 
 #contents {
-    display:inline-block;
-    width:80%;
+    /* display:inline-block; */
+    width: 1000px;
     align-content: center;
-    margin: auto;
+    margin: 0px auto;
 }
 
 #banner-image {
     width:100%;
 }
 
-#contents, #contents * {
+#contents {
     background-color: #FFF;
 }
 
@@ -52,23 +62,46 @@ div #banner {
 
 #banner p {
     text-align: center;
+    font-style: italic;
+    font-size: 32px;
+    font-family: 'Georgia', serif;
+    margin: 50px;
+    color: #666;
 }
 
 #playerList{
     display: inline-block;
-    margin-right: 50px;
+    margin: 0px 49px;
+    width: 400px;
 }
 
 #coachList{
     display: inline-block;
+    width: 400px;
+    margin: 0px 49px;
 }
 
 table{
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid #DDD;
-    margin-bottom: 20px;
+    /* border: 1px solid #DDD; */
+    /* margin-bottom: 20px; */
+}
+
+table tbody tr td a p {
+    color: #FFF;
+    background-color: #ff6c59;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 11px;
+}
+table tbody tr td a p:hover {
+    background-color: #ff9a8f;
+}
+
+a {
+    text-decoration: none;
 }
 
 #playerList td{
@@ -81,7 +114,6 @@ table{
 }
 
 thead tr {
-    background: #DDD;
 }
 
 th, td {
@@ -89,7 +121,8 @@ th, td {
 }
 
 #listContainer{
-    width: auto;
-    margin-left: 50px;
-    margin-right: 50px;
+    width: 1000px;
+    margin: auto;
+    /* margin-right: 50px; */
+    padding-bottom: 20px;
 }
