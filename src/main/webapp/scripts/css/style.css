@@ -16,11 +16,13 @@ body {
 }
 
 #menu {
-    display:inline-block;
+    position: absolute;
+    top: 70px;
+    /* display:inline-block; */
     width: 140px;
     background-color: #FFF;
     vertical-align:top;
-    margin-top: 70px;
+    /* margin-top: 70px; */
     border: 1px solid #FFF;
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
@@ -38,10 +40,10 @@ body {
 }
 
 #contents {
-    display:inline-block;
+    /* display:inline-block; */
     width: 1000px;
     align-content: center;
-    margin: 0px 4%;
+    margin: 0px auto;
 }
 
 #banner-image {
