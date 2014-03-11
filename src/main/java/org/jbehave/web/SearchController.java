@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,16 +22,38 @@ public class SearchController {
     private PlayerService playerService;
     private CoachService coachService;
 
+    private List<String> searchOptions;
+
+
     @Autowired
     public SearchController(PlayerService playerService, CoachService coachService) {
         this.playerService = playerService;
+        searchOptions = populateList();
         this.coachService = coachService;
+    }
+
+    private List<String> populateList() {
+        ArrayList<String> options = new ArrayList<String>();
+        options.add("Name");
+        options.add("Number");
+        options.add("Age: Older Than");
+        options.add("Team");
+        return options;
     }
 
     @RequestMapping(value="/search", method= RequestMethod.GET)
     public String displayPage(Model model) {
-        model.addAttribute("playerInfo", new SearchForm());
+        model.addAttribute("searchOptions", searchOptions);
         return "search";
+    }
+
+    @RequestMapping(value="search", method= RequestMethod.POST)
+    public ModelAndView handleSearch(@RequestParam("searchOption")String searchOption, @RequestParam("entry") String entry, ModelMap modelMap) {
+            ArrayList<Player> matchingPlayers = playerService.search(entry, searchOption);
+            modelMap.addAttribute("name", entry);
+            modelMap.addAttribute("results", matchingPlayers);
+
+        return new ModelAndView("searchResults", modelMap);
     }
 
     @RequestMapping(value="/search", method= RequestMethod.POST)
@@ -72,5 +93,11 @@ public class SearchController {
         modelMap.addAttribute("results",matchingPlayers);
 
         return new ModelAndView("searchResults", modelMap);
+    }
+
+
+
+    public List<String> getSearchOptions() {
+        return searchOptions;
     }
 }

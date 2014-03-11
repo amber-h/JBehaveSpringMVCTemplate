@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="<c:url value='/scripts/css/style.css' />" type="text/css"/>
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,300,300italic,500,500italic,700,700italic'
           rel='stylesheet' type='text/css'>
-    <title>Football Manager</title>
+    <title id="pageTitle">Football Manager</title>
 </head>
 <body>
 <div id="menu">
@@ -43,7 +43,21 @@
         <input type="submit" value="Submit">
     </form>
 
+<div>
+    <form action="search" method="post">
+        <label for="searchOptions">Search By:</label>
+        <select type="text" id="searchOptions" name="searchOption">
+            <option value="">Search By</option>
+            <c:forEach var="option" items="${searchOptions}" varStatus="row">
+                <option value= ${option}>${option}</option>
+            </c:forEach>
+        </select>
+        <input type="text" name="entry">
+        <input type="submit" value="Submit">
+    </form>
 </div>
+</div>
+
 
 
 </body>
