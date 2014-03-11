@@ -72,8 +72,4 @@ public class PlayerService {
         }
         return matchingPlayers;
     }
-
-    public ArrayList<Player> search(String name, String option) {
-        return null;
-    }
 }

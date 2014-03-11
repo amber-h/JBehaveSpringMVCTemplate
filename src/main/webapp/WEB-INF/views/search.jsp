@@ -42,20 +42,6 @@
         Find Players Older Than: <input type ="text" name="age"><br>
         <input type="submit" value="Submit">
     </form>
-
-<div>
-    <form action="search" method="post">
-        <label for="searchOptions">Search By:</label>
-        <select type="text" id="searchOptions" name="searchOption">
-            <option value="">Search By</option>
-            <c:forEach var="option" items="${searchOptions}" varStatus="row">
-                <option value= ${option}>${option}</option>
-            </c:forEach>
-        </select>
-        <input type="text" name="entry">
-        <input type="submit" value="Submit">
-    </form>
-</div>
 </div>
 
 

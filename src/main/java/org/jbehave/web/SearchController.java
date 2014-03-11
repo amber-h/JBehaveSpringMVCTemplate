@@ -47,15 +47,6 @@ public class SearchController {
         return "search";
     }
 
-    @RequestMapping(value="search", method= RequestMethod.POST)
-    public ModelAndView handleSearch(@RequestParam("searchOption")String searchOption, @RequestParam("entry") String entry, ModelMap modelMap) {
-            ArrayList<Player> matchingPlayers = playerService.search(entry, searchOption);
-            modelMap.addAttribute("name", entry);
-            modelMap.addAttribute("results", matchingPlayers);
-
-        return new ModelAndView("searchResults", modelMap);
-    }
-
     @RequestMapping(value="/search", method= RequestMethod.POST)
     public ModelAndView handleSearchByName(@RequestParam("name") String name, ModelMap modelMap) {
         List<Player> matchingPlayers = playerService.findByName(name);

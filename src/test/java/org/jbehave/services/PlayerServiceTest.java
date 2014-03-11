@@ -87,12 +87,4 @@ public class PlayerServiceTest {
         assertThat(playersOlderThan40.get(0).getName(), is("Dannielle Del Rosario"));
 
     }
-    @Ignore
-    @Test
-    public void searchShouldCallSearchByNameWhenPassedNameOption() {
-        String searchOption = "name";
-        List<Player>playersWithFieldInName = playerService.search("Amber", searchOption);
-        assertTrue(playersWithFieldInName.contains("Amber Houle"));
-
-    }
 }
