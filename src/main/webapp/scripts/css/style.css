@@ -71,7 +71,7 @@ div #banner {
     width: 400px;
 }
 
-#coachList{
+#coachList, #teamList{
     display: inline-block;
     width: 400px;
     margin: 0px 49px;
@@ -85,7 +85,7 @@ table{
     /* margin-bottom: 20px; */
 }
 
-.player-name {
+.player-name, .team-name{
     color: #FFF;
     background-color: #ff6c59;
     border: 1px solid;

@@ -16,6 +16,36 @@
     <div id ="directions">
         <p>${directions}</p>
     </div>
+    <div>
+        <form action="/trade" method="GET">
+            <div id="listContainer">
+                <%@include file="snippets/playerListSnippet.jsp"%>
+
+                <div id="teamList">
+                    <h1>Teams</h1>
+                    <table id="teamTable">
+                        <thead>
+                        <tr>
+                            <th>Team</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <c:forEach var="team" items="${teams}">
+                            <tr>
+                                <td>
+                                    <p class="team-name">${team}</p>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
 </div>
 
 </body>

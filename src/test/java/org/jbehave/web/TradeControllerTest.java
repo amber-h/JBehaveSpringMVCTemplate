@@ -1,11 +1,14 @@
 package org.jbehave.web;
 
 
+import org.jbehave.model.LeagueData;
 import org.jbehave.services.PlayerService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.springframework.ui.ModelMap;
+
+import java.util.ArrayList;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -30,6 +33,8 @@ public class TradeControllerTest {
     public void shouldDisplayTradePage() throws Exception {
         String tradePage = tradeController.displayPage(model);
         assertThat((String)model.get("directions"), is("Trade Players"));
+        assertThat((ArrayList)model.get("players"), is(LeagueData.getPlayers()));
+        assertThat((ArrayList)model.get("teams"), is(LeagueData.getTeams()));
         assertThat(tradePage, is("trade"));
     }
 }
