@@ -53,6 +53,13 @@ public class PlayerServiceTest {
     }
 
     @Test
+    public void searchByNameAndNumberShouldReturnMatchingPlayers() {
+        ArrayList<Player> players = playerService.findByNameAndNumber("Beccie Magnus", 13);
+        assertThat(players.size(), is(1));
+        assertThat(players.get(0).getName(), is("Beccie Magnus"));
+    }
+
+    @Test
     public void shouldAddPlayersToPlayerList() throws Exception {
         assertTrue(playerService.retrievePlayers().size() > 0);
 

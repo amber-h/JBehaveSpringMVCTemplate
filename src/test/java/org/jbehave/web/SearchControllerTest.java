@@ -65,7 +65,16 @@ public class SearchControllerTest {
 //        return matchingPlayers;
 //    }
 
-        @Test
+
+    @Test
+    public void submittingSearchByNameAndNumberShouldReturnSearchResultsPage() throws Exception {
+        ModelAndView modelAndView = searchController.handleSearchByNameAndNumber("name", "3", model);
+
+        assertThat(model.containsKey("results"), is(true));
+        assertThat(modelAndView.getViewName(), is("searchResults"));
+    }
+
+    @Test
     public void submittingSearchByNameShouldReturnSearchResultsPage() {
         ModelAndView modelAndView = searchController.handleSearchByName("name", mockedmodel);
 

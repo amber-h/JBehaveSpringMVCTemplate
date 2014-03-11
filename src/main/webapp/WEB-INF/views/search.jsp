@@ -24,12 +24,12 @@
     <img id="banner-image" src="<c:url value='/images/banner.png'/>"/>
 
     <form action="search" method="post">
-        Player Name: <input type="text" name="name"><br>
+        Player Name: <input type="text" name="nameOnly"><br>
         <input type="submit" value="Submit">
     </form>
 
     <form action="search" method="post" >
-        Number: <input type="text" name="number"><br>
+        Number: <input type="text" name="numberOnly"><br>
         <input type="submit" value="Submit">
     </form>
 
@@ -40,6 +40,12 @@
 
     <form action="search" method="post">
         Find Players Older Than: <input type ="text" name="age"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <form action="search" method="post">
+        Player Name: <input type="text" name="name"><br>
+        Number: <input type="text" name="number"><br>
         <input type="submit" value="Submit">
     </form>
 </div>

@@ -72,4 +72,15 @@ public class PlayerService {
         }
         return matchingPlayers;
     }
+
+    public ArrayList<Player> findByNameAndNumber(String name, int number) {
+        ArrayList<Player> players = LeagueData.getPlayers();
+        ArrayList<Player> matchingPlayers = new ArrayList<Player>();
+        for(Player player : players){
+            if(player.getNumber() == number && StringUtils.containsIgnoreCase(player.getName(), name)){
+                matchingPlayers.add(player);
+            }
+        }
+        return matchingPlayers;
+    }
 }
