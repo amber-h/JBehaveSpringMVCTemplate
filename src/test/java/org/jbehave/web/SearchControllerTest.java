@@ -78,7 +78,7 @@ public class SearchControllerTest {
     public void submittingSearchByNameShouldReturnSearchResultsPage() {
         ModelAndView modelAndView = searchController.handleSearchByName("name", mockedmodel);
 
-        verify(mockedmodel).addAttribute("name", "name");
+        verify(mockedmodel).addAttribute("nameOnly", "name");
         assertThat(modelAndView.getViewName(), is("searchResults"));
     }
 
@@ -86,7 +86,7 @@ public class SearchControllerTest {
     public void submittingSearchByNumberShouldReturnSearchResultsPage() {
         ModelAndView modelAndView = searchController.handleSearchByNumber("1", mockedmodel);
 
-        verify(mockedmodel).addAttribute("number", 1);
+        verify(mockedmodel).addAttribute("numberOnly", 1);
         assertThat(modelAndView.getViewName(), is("searchResults"));
     }
 
