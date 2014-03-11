@@ -25,7 +25,7 @@ public class PlayerService {
         List<Player> matchingPlayers = new ArrayList<Player>();
 
         for (Player player : players) {
-            if (player.getName().contains(playerName)) {
+            if (StringUtils.containsIgnoreCase(player.getName(), playerName)) {
                 matchingPlayers.add(player);
             }
         }
