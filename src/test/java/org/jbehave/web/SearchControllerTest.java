@@ -23,12 +23,10 @@ import static org.mockito.MockitoAnnotations.initMocks;
 
 public class SearchControllerTest {
     private SearchController searchController;
+    private ModelMap model;
 
     @Mock
     private PlayerService mockPlayerService;
-    @Mock
-    private ModelMap mockedmodel;
-    private ModelMap model;
     @Mock
     private CoachService mockCoachService;
 
@@ -48,26 +46,8 @@ public class SearchControllerTest {
         assertThat(page, is("search"));
     }
 
-//    public void shouldHandleSearchByName() throws Exception {
-//        String searchEntry = "Beccie Magnus";
-//        searchController.handleSearch("name", searchEntry, model);
-//        ArrayList<Player> matchingPlayers = playerServiceReturnsPlayerListWithPlayerNamed("Beccie Magnus");
-//
-//        verify(mockPlayerService).search(searchEntry, "name");
-//        assertThat(model.containsKey("results"), is(true));
-//        assertThat((ArrayList<Player>) model.get("results"), is(matchingPlayers));
-//    }
-//
-//    private ArrayList<Player> playerServiceReturnsPlayerListWithPlayerNamed(String name) {
-//        ArrayList<Player> matchingPlayers = new ArrayList<Player>();
-//        matchingPlayers.add(new Player(name, "Squirrels", 3, 24));
-//        when(mockPlayerService.search(name, "name")).thenReturn(matchingPlayers);
-//        return matchingPlayers;
-//    }
-
-
     @Test
-    public void submittingSearchByNameAndNumberShouldReturnSearchResultsPage() throws Exception {
+    public void searchByNameAndNumberShouldReturnSearchResultsPage() throws Exception {
         ModelAndView modelAndView = searchController.handleSearchByNameAndNumber("name", "3", model);
 
         assertThat(model.containsKey("results"), is(true));
@@ -75,18 +55,26 @@ public class SearchControllerTest {
     }
 
     @Test
-    public void submittingSearchByNameShouldReturnSearchResultsPage() {
-        ModelAndView modelAndView = searchController.handleSearchByName("name", mockedmodel);
+    public void searchByNameShouldReturnSearchResultsPage() {
+        ModelAndView modelAndView = searchController.handleSearchByName("name", model);
 
-        verify(mockedmodel).addAttribute("nameOnly", "name");
+        assertThat((String) model.get("nameOnly"), is("name"));
         assertThat(modelAndView.getViewName(), is("searchResults"));
     }
 
     @Test
-    public void submittingSearchByNumberShouldReturnSearchResultsPage() {
-        ModelAndView modelAndView = searchController.handleSearchByNumber("1", mockedmodel);
+    public void searchByNumberShouldReturnSearchResultsPage() {
+        ModelAndView modelAndView = searchController.handleSearchByNumber("1", model);
 
-        verify(mockedmodel).addAttribute("numberOnly", 1);
+        assertThat((Integer) model.get("numberOnly"), is(1));
+        assertThat(modelAndView.getViewName(), is("searchResults"));
+    }
+
+    @Test
+    public void searchByTeamNameShouldReturnTheSearchResultsPage() throws Exception {
+        ModelAndView modelAndView = searchController.handleSearchByTeamName("teamName", model);
+
+        assertThat((String) model.get("teamName"), is("teamName"));
         assertThat(modelAndView.getViewName(), is("searchResults"));
     }
 
@@ -94,57 +82,49 @@ public class SearchControllerTest {
     public void searchByNameShouldGetResultsFromService() {
         ArrayList<Player> players = new ArrayList<Player>();
         when(mockPlayerService.findByName("name")).thenReturn(players);
-        searchController.handleSearchByName("name", mockedmodel);
+        searchController.handleSearchByName("name", model);
 
         verify(mockPlayerService).findByName("name");
-        verify(mockedmodel).addAttribute("results", players);
+        assertThat(model.containsKey("results"), is(true));
     }
 
     @Test
     public void searchByNumberShouldGetResultsFromService() {
         ArrayList<Player> players = new ArrayList<Player>();
         when(mockPlayerService.findByNumber(1)).thenReturn(players);
-        searchController.handleSearchByNumber("1", mockedmodel);
+        searchController.handleSearchByNumber("1", model);
 
         verify(mockPlayerService).findByNumber(1);
-        verify(mockedmodel).addAttribute("results", players);
+        assertThat(model.containsKey("results"), is(true));
     }
 
     @Test
     public void searchByOlderThanShouldGetResultsFromService() {
         ArrayList<Player> players = new ArrayList<Player>();
         when(mockPlayerService.findOlderThan(1)).thenReturn(players);
-        searchController.handleSearchOlderThan("1", mockedmodel);
+        searchController.handleSearchOlderThan("1", model);
 
         verify(mockPlayerService).findOlderThan(1);
-        verify(mockedmodel).addAttribute("results", players);
+        assertThat(model.containsKey("results"), is(true));
     }
 
     @Test
     public void searchByTeamShouldGetResultsFromService() throws Exception {
         ArrayList<Player> players = new ArrayList<Player>();
         when(mockPlayerService.findByTeam("teamName")).thenReturn(players);
-        searchController.handleSearchByTeamName("teamName", mockedmodel);
+        searchController.handleSearchByTeamName("teamName", model);
 
         verify(mockPlayerService).findByTeam("teamName");
-        verify(mockedmodel).addAttribute("results", players);
-    }
-
-    @Test
-    public void submittingTheSearchByTeamNameShouldReturnTheSearchResultsPage() throws Exception {
-        ModelAndView modelAndView = searchController.handleSearchByTeamName("teamName", mockedmodel);
-        verify(mockedmodel).addAttribute("teamName", "teamName");
-        assertThat(modelAndView.getViewName(), is("searchResults"));
+        assertThat(model.containsKey("results"), is(true));
     }
 
     @Test
     public void searchByTeamShouldGetCoachLeagueData() throws Exception {
         List<Coach> coaches = new ArrayList<Coach>();
         when(mockCoachService.findByTeam("teamName")).thenReturn(coaches);
-        searchController.handleSearchByTeamName("teamName", mockedmodel);
+        searchController.handleSearchByTeamName("teamName", model);
 
         verify(mockCoachService).findByTeam("teamName");
-
-        verify(mockedmodel).addAttribute("coachResults",coaches);
+        assertThat(model.containsKey("coachResults"), is(true));
     }
 }

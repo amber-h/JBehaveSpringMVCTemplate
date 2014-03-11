@@ -27,39 +27,6 @@ public class PlayerServiceTest {
     }
 
     @Test
-    public void searchForNonExistentPlayerReturnsEmptyList() {
-        ArrayList<Player> players = playerService.findByName("Smith");
-        assertTrue(players.isEmpty());
-    }
-
-    @Test
-    public void searchByNameShouldReturnMatchingPlayers() {
-        ArrayList<Player> players = playerService.findByName("Carol Schofield");
-        assertThat(players.size(), is(1));
-        assertThat(players.get(0).getName(), is("Carol Schofield"));
-    }
-
-    @Test
-    public void searchShouldFindPlayersByFirstOrLastName() {
-        ArrayList<Player> players = playerService.findByName("Carol");
-        assertThat(players.get(0).getName(), is("Carol Schofield"));
-    }
-
-    @Test
-    public void searchByNumberShouldReturnMatchingPlayers() {
-        ArrayList<Player> players = playerService.findByNumber(13);
-        assertThat(players.size(), is(2));
-        assertThat(players.get(0).getName(), is("Beccie Magnus"));
-    }
-
-    @Test
-    public void searchByNameAndNumberShouldReturnMatchingPlayers() {
-        ArrayList<Player> players = playerService.findByNameAndNumber("Beccie Magnus", 13);
-        assertThat(players.size(), is(1));
-        assertThat(players.get(0).getName(), is("Beccie Magnus"));
-    }
-
-    @Test
     public void shouldAddPlayersToPlayerList() throws Exception {
         assertTrue(playerService.retrievePlayers().size() > 0);
 
@@ -70,9 +37,67 @@ public class PlayerServiceTest {
     }
 
     @Test
+    public void searchByWrongNameShouldReturnNoResults() {
+        List<Player> players = playerService.findByName("Smith");
+        assertThat(players.isEmpty(), is(true));
+    }
+
+    @Test
+    public void shouldFindPlayersByName() {
+        List<Player> players = playerService.findByName("Carol Schofield");
+        assertThat(players.size(), is(1));
+        assertThat(players.get(0).getName(), is("Carol Schofield"));
+    }
+
+    @Test
+    public void shouldFindPlayersByFirstOrLastName() {
+        List<Player> players = playerService.findByName("Carol");
+        assertThat(players.get(0).getName(), is("Carol Schofield"));
+    }
+
+    @Test
+    public void shouldFindPlayersByNameRegardlessOfCase() {
+        List<Player> players = playerService.findByName("carol");
+        assertThat(players.get(0).getName(), is("Carol Schofield"));
+    }
+
+    @Test
+    public void shouldFindPlayersByNumber() {
+        List<Player> players = playerService.findByNumber(13);
+        assertThat(players.size(), is(2));
+        assertThat(players.get(0).getName(), is("Beccie Magnus"));
+    }
+
+    @Test
+    public void searchByNameAndWrongNumberShouldReturnNoResults() {
+        List<Player> players = playerService.findByNameAndNumber("Beccie Magnus", 31);
+        assertThat(players.isEmpty(), is(true));
+    }
+
+    @Test
+    public void shouldFindPlayersByNameAndNumber() {
+        List<Player> players = playerService.findByNameAndNumber("Beccie Magnus", 13);
+        assertThat(players.size(), is(1));
+        assertThat(players.get(0).getName(), is("Beccie Magnus"));
+    }
+
+    @Test
+    public void shouldFindPlayersByNameAndNumberRegardlessOfCase() {
+        List<Player> players = playerService.findByNameAndNumber("beccie", 13);
+        assertThat(players.size(), is(1));
+        assertThat(players.get(0).getName(), is("Beccie Magnus"));
+    }
+
+    @Test
     public void shouldFindPlayersByTeamName(){
         List<Player> playersOnATeam = playerService.findByTeam("The Bill Murrays");
         assertThat(playersOnATeam.get(0).getName(), is("Dannielle Del Rosario"));
+    }
+
+    @Test
+    public void searchByWrongTeamNameShouldReturnNoResults() {
+        List<Player> players = playerService.findByTeam("Not A Team");
+        assertThat(players.isEmpty(), is(true));
     }
 
     @Test
@@ -82,17 +107,16 @@ public class PlayerServiceTest {
     }
 
     @Test
-    public void shouldReturnEmptyListWhenNoPlayersOlderThan40() {
+    public void shouldReturnNoResultsWhenNoPlayersAreOlderThan45() {
         List<Player> playersOlderThan45 = playerService.findOlderThan(45);
         assertTrue(playersOlderThan45.isEmpty());
     }
 
     @Test
-    public void searchOlderThanShouldReturnMatchingPlayers() {
+    public void shouldFindPlayersByOlderThan() {
         List<Player> playersOlderThan40 = playerService.findOlderThan(40);
         assertThat(playersOlderThan40.size(), is(1));
         assertThat(playersOlderThan40.get(0).getName(), is("Dannielle Del Rosario"));
-
     }
 
     @Test
