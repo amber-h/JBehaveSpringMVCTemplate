@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -27,26 +28,26 @@ public class PlayerServiceTest {
 
     @Test
     public void searchForNonExistentPlayerReturnsEmptyList() {
-        List<Player> players = playerService.findByName("Smith");
+        ArrayList<Player> players = playerService.findByName("Smith");
         assertTrue(players.isEmpty());
     }
 
     @Test
     public void searchByNameShouldReturnMatchingPlayers() {
-        List<Player> players = playerService.findByName("Carol Schofield");
+        ArrayList<Player> players = playerService.findByName("Carol Schofield");
         assertThat(players.size(), is(1));
         assertThat(players.get(0).getName(), is("Carol Schofield"));
     }
 
     @Test
     public void searchShouldFindPlayersByFirstOrLastName() {
-        List<Player> players = playerService.findByName("Carol");
+        ArrayList<Player> players = playerService.findByName("Carol");
         assertThat(players.get(0).getName(), is("Carol Schofield"));
     }
 
     @Test
     public void searchByNumberShouldReturnMatchingPlayers() {
-        List<Player> players = playerService.findByNumber(13);
+        ArrayList<Player> players = playerService.findByNumber(13);
         assertThat(players.size(), is(2));
         assertThat(players.get(0).getName(), is("Beccie Magnus"));
     }
@@ -86,5 +87,12 @@ public class PlayerServiceTest {
         assertThat(playersOlderThan40.get(0).getName(), is("Dannielle Del Rosario"));
 
     }
+    @Ignore
+    @Test
+    public void searchShouldCallSearchByNameWhenPassedNameOption() {
+        String searchOption = "name";
+        List<Player>playersWithFieldInName = playerService.search("Amber", searchOption);
+        assertTrue(playersWithFieldInName.contains("Amber Houle"));
 
+    }
 }
