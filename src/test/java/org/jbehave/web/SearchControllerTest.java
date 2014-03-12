@@ -57,10 +57,10 @@ public class SearchControllerTest {
     @Test
     public void searchByNameAndNumberShouldGetResultsFromService() {
         ArrayList<Player> players = new ArrayList<Player>();
-        when(mockPlayerService.findByNameAndNumber(testName, 1)).thenReturn(players);
+        when(mockPlayerService.findByNameAndNumber(testName, "1")).thenReturn(players);
         searchController.handleSearchByNameAndNumber(testName, "1", model);
 
-        verify(mockPlayerService).findByNameAndNumber(testName, 1);
+        verify(mockPlayerService).findByNameAndNumber(testName, "1");
         assertThat(model.containsKey("results"), is(true));
 
     }
@@ -93,10 +93,10 @@ public class SearchControllerTest {
     @Test
     public void searchByNumberShouldGetResultsFromService() {
         ArrayList<Player> players = new ArrayList<Player>();
-        when(mockPlayerService.findByNumber(1)).thenReturn(players);
+        when(mockPlayerService.findByNumber("1")).thenReturn(players);
         searchController.handleSearchByNumber("1", model);
 
-        verify(mockPlayerService).findByNumber(1);
+        verify(mockPlayerService).findByNumber("1");
         assertThat(model.containsKey("results"), is(true));
     }
 
@@ -127,10 +127,10 @@ public class SearchControllerTest {
     @Test
     public void searchByOlderThanShouldGetResultsFromService() {
         ArrayList<Player> players = new ArrayList<Player>();
-        when(mockPlayerService.findOlderThan(1)).thenReturn(players);
+        when(mockPlayerService.findOlderThan("1")).thenReturn(players);
         searchController.handleSearchOlderThan("1", model);
 
-        verify(mockPlayerService).findOlderThan(1);
+        verify(mockPlayerService).findOlderThan("1");
         assertThat(model.containsKey("results"), is(true));
     }
 

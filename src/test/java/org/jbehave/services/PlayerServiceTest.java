@@ -63,27 +63,27 @@ public class PlayerServiceTest {
 
     @Test
     public void shouldFindPlayersByNumber() {
-        List<Player> players = playerService.findByNumber(13);
+        List<Player> players = playerService.findByNumber("13");
         assertThat(players.size(), is(2));
         assertThat(players.get(0).getName(), is("Beccie Magnus"));
     }
 
     @Test
     public void searchByNameAndWrongNumberShouldReturnNoResults() {
-        List<Player> players = playerService.findByNameAndNumber("Beccie Magnus", 31);
+        List<Player> players = playerService.findByNameAndNumber("Beccie Magnus", "31");
         assertThat(players.isEmpty(), is(true));
     }
 
     @Test
     public void shouldFindPlayersByNameAndNumber() {
-        List<Player> players = playerService.findByNameAndNumber("Beccie Magnus", 13);
+        List<Player> players = playerService.findByNameAndNumber("Beccie Magnus", "13");
         assertThat(players.size(), is(1));
         assertThat(players.get(0).getName(), is("Beccie Magnus"));
     }
 
     @Test
     public void shouldFindPlayersByNameAndNumberRegardlessOfCase() {
-        List<Player> players = playerService.findByNameAndNumber("beccie", 13);
+        List<Player> players = playerService.findByNameAndNumber("beccie", "13");
         assertThat(players.size(), is(1));
         assertThat(players.get(0).getName(), is("Beccie Magnus"));
     }
@@ -108,13 +108,13 @@ public class PlayerServiceTest {
 
     @Test
     public void shouldReturnNoResultsWhenNoPlayersAreOlderThan45() {
-        List<Player> playersOlderThan45 = playerService.findOlderThan(45);
+        List<Player> playersOlderThan45 = playerService.findOlderThan("45");
         assertTrue(playersOlderThan45.isEmpty());
     }
 
     @Test
     public void shouldFindPlayersByOlderThan() {
-        List<Player> playersOlderThan40 = playerService.findOlderThan(40);
+        List<Player> playersOlderThan40 = playerService.findOlderThan("40");
         assertThat(playersOlderThan40.size(), is(1));
         assertThat(playersOlderThan40.get(0).getName(), is("Dannielle Del Rosario"));
     }

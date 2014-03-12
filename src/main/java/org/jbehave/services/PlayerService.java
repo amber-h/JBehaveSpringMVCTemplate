@@ -36,12 +36,13 @@ public class PlayerService {
         return matchingPlayers;
     }
 
-    public ArrayList<Player> findByNumber(int number) {
+    public ArrayList<Player> findByNumber(String number) {
         ArrayList<Player> players = LeagueData.getPlayers();
         ArrayList<Player> matchingPlayers = new ArrayList<Player>();
 
         for (Player player : players) {
-            if (player.getNumber() == number) {
+        int playerNumber = Integer.parseInt(number);
+            if (player.getNumber() == playerNumber) {
                 matchingPlayers.add(player);
             }
         }
@@ -62,22 +63,24 @@ public class PlayerService {
         return playersOnTeam;
     }
 
-    public ArrayList<Player> findOlderThan(int age) {
+    public ArrayList<Player> findOlderThan(String age) {
         ArrayList<Player> players = LeagueData.getPlayers();
         ArrayList<Player> matchingPlayers = new ArrayList<Player>();
         for(Player player : players) {
-            if(player.getAge() > age) {
+            int playerAge = Integer.parseInt(age);
+            if(player.getAge() > playerAge) {
                 matchingPlayers.add(player);
             }
         }
         return matchingPlayers;
     }
 
-    public ArrayList<Player> findByNameAndNumber(String name, int number) {
+    public ArrayList<Player> findByNameAndNumber(String name, String number) {
         ArrayList<Player> players = LeagueData.getPlayers();
         ArrayList<Player> matchingPlayers = new ArrayList<Player>();
         for(Player player : players){
-            if(player.getNumber() == number && StringUtils.containsIgnoreCase(player.getName(), name)){
+            int playerNumber = Integer.parseInt(number);
+            if(player.getNumber() == playerNumber && StringUtils.containsIgnoreCase(player.getName(), name)){
                 matchingPlayers.add(player);
             }
         }

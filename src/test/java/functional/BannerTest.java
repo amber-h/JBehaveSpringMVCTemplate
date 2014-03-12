@@ -16,17 +16,14 @@ public class BannerTest {
         screen = new ScreenApi(driver);
     }
 
-
     @Test
     public void testBannerDisplays() {
         screen
                 .showsBanner();
-
     }
 
     @AfterClass
     public static void afterClass() throws Exception {
         driver.close();
-
     }
 }

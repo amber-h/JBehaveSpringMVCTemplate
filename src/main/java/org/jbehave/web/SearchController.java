@@ -49,8 +49,7 @@ public class SearchController {
 
     @RequestMapping(value="/search", params={"name", "number"}, method=RequestMethod.POST)
     public ModelAndView handleSearchByNameAndNumber(@RequestParam("name")String name, @RequestParam("number")String number, ModelMap modelMap) {
-        int searchNumber = Integer.parseInt(number);
-        List<Player> matchingPlayers = playerService.findByNameAndNumber(name, searchNumber);
+        List<Player> matchingPlayers = playerService.findByNameAndNumber(name, number);
 
         modelMap.addAttribute("results", matchingPlayers);
         return new ModelAndView("searchResults", modelMap);
@@ -66,8 +65,7 @@ public class SearchController {
 
     @RequestMapping(value="/search", params = "numberOnly", method= RequestMethod.POST)
     public ModelAndView handleSearchByNumber(@RequestParam("numberOnly") String number, ModelMap modelMap) {
-        int searchNumber = Integer.parseInt(number);
-        List<Player> matchingPlayers = playerService.findByNumber(searchNumber);
+        List<Player> matchingPlayers = playerService.findByNumber(number);
         modelMap.addAttribute("results",matchingPlayers);
 
         return new ModelAndView("searchResults", modelMap);
@@ -84,8 +82,7 @@ public class SearchController {
 
     @RequestMapping(value = "/search", params = "age", method = RequestMethod.POST)
     public ModelAndView handleSearchOlderThan(@RequestParam("age") String age, ModelMap modelMap) {
-        int searchAge = Integer.parseInt(age);
-        List<Player> matchingPlayers = playerService.findOlderThan(searchAge);
+        List<Player> matchingPlayers = playerService.findOlderThan(age);
         modelMap.addAttribute("results",matchingPlayers);
 
         return new ModelAndView("searchResults", modelMap);
