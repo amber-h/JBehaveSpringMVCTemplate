@@ -44,8 +44,5 @@ public class HomeController {
         model.addAttribute("banner", "Welcome to the Fabulous Football League Manager!");
         return "home";
 	}
-
-
-
 }
 

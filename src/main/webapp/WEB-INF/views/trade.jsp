@@ -5,12 +5,16 @@
     <link rel="stylesheet" href="<c:url value='/scripts/css/style.css' />" type="text/css"/>
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,300,300italic,500,500italic,700,700italic'
           rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <title>Football Manager</title>
 </head>
 <body>
 <div id="menu">
     <%@ include file="snippets/menuSnippet.jsp" %>
 </div>
+
 <div id="contents">
     <img id="banner-image" src="<c:url value='/images/banner.png'/>"/>
     <div id ="directions">
@@ -34,7 +38,7 @@
                         <c:forEach var="team" items="${teams}">
                             <tr>
                                 <td>
-                                    <p class="team-name">${team}</p>
+                                    <p id="droppable" class="team-name">${team}</p>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -49,4 +53,20 @@
 </div>
 
 </body>
+
+<script>
+    $(function() {
+        $( "#draggable" ).draggable({
+            cursor: 'move'
+        });
+        $( "#droppable" ).droppable({
+            drop: function( event, ui ) {
+                $( this )
+                        .addClass( "ui-state-highlight" )
+                        .find( "p" )
+                        .html( "Dropped!" );
+            }
+        });
+    });
+</script>
 </html>

@@ -14,7 +14,7 @@
 
             <tr>
                 <td>
-                    <a href="/"><p class="player-name">${player.name}</p></a>
+                    <p id= "draggable" class="player-name">${player.name}</p>
                 </td>
                 <td>
                     <p>${player.team}</p>

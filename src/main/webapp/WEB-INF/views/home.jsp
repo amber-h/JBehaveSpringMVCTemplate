@@ -36,7 +36,7 @@
             <c:forEach var="coach" items="${coaches}">
                 <tr>
                     <td>
-                        <a href="/"><p class="player-name">${coach.name}</p></a>
+                        <p class="player-name">${coach.name}</p>
                     </td>
                     <td>
                         <p>${coach.team}</p>
