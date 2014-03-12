@@ -14,7 +14,7 @@
 
             <tr>
                 <td>
-                    <p id= "draggable" class="player-name">${player.name}</p>
+                    <p class="player-name">${player.name}</p>
                 </td>
                 <td>
                     <p>${player.team}</p>

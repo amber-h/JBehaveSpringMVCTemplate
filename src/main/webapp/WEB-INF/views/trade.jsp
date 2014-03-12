@@ -38,7 +38,7 @@
                         <c:forEach var="team" items="${teams}">
                             <tr>
                                 <td>
-                                    <p id="droppable" class="team-name">${team}</p>
+                                    <p class="team-name">${team}</p>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -56,17 +56,21 @@
 
 <script>
     $(function() {
-        $( "#draggable" ).draggable({
-            cursor: 'move'
+        $( ".player-name" ).draggable({
+            cursor: 'move',
+            revert: true
         });
-        $( "#droppable" ).droppable({
+        $( ".team-name" ).droppable({
             drop: function( event, ui ) {
                 $( this )
                         .addClass( "ui-state-highlight" )
                         .find( "p" )
-                        .html( "Dropped!" );
+                        .html( "Dropped!" )
+
+
             }
         });
     });
+
 </script>
 </html>
