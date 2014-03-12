@@ -11,6 +11,11 @@
         <li>
             <a href ="<c:url value="/trade" />">
             Trade Players</a>
+        </li>
+        <li>
+            <a href ="<c:url value="/recordResults" />">
+                Record Results</a>
+        </li>
     </ul>
 
 </div>

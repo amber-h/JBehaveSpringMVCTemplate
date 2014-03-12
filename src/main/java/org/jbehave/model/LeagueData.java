@@ -5,7 +5,7 @@ import java.util.List;
 
 public class LeagueData {
 
-    private static ArrayList<String> teams;
+    private static ArrayList<Team> teams;
     private static ArrayList<Player> players;
 
     static {
@@ -14,10 +14,10 @@ public class LeagueData {
         players.add(new Player("Beccie Magnus", "Squirrels", 13, 31));
         players.add(new Player("Carol Schofield", "The Oncelers", 13, 28));
 
-        teams = new ArrayList<String>();
-        teams.add("The Bill Murrays");
-        teams.add("Squirrels");
-        teams.add("The Oncelers");
+        teams = new ArrayList<Team>();
+        teams.add(new Team("The Bill Murrays"));
+        teams.add(new Team("Squirrels"));
+        teams.add(new Team("The Oncelers"));
     }
 
 
@@ -35,7 +35,7 @@ public class LeagueData {
     }
     public static List<Coach> getCoaches() { return coaches; }
 
-    public static ArrayList<String> getTeams() {
+    public static ArrayList<Team> getTeams() {
         return teams;
     }
 }
