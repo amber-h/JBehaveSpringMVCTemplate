@@ -65,41 +65,6 @@ public class SearchControllerTest {
 
     }
 
-
-    @Test
-    public void searchByNameShouldReturnSearchResultsPage() {
-        ModelAndView modelAndView = searchController.handleSearchByName(testName, model);
-
-        assertThat(modelAndView.getViewName(), is("searchResults"));
-    }
-
-    @Test
-    public void searchByNameShouldGetResultsFromService() {
-        ArrayList<Player> players = new ArrayList<Player>();
-        when(mockPlayerService.findByName(testName)).thenReturn(players);
-        searchController.handleSearchByName(testName, model);
-
-        verify(mockPlayerService).findByName(testName);
-        assertThat(model.containsKey("results"), is(true));
-    }
-
-    @Test
-    public void searchByNumberShouldReturnSearchResultsPage() {
-        ModelAndView modelAndView = searchController.handleSearchByNumber("1", model);
-
-        assertThat(modelAndView.getViewName(), is("searchResults"));
-    }
-
-    @Test
-    public void searchByNumberShouldGetResultsFromService() {
-        ArrayList<Player> players = new ArrayList<Player>();
-        when(mockPlayerService.findByNumber("1")).thenReturn(players);
-        searchController.handleSearchByNumber("1", model);
-
-        verify(mockPlayerService).findByNumber("1");
-        assertThat(model.containsKey("results"), is(true));
-    }
-
     @Test
     public void searchByTeamNameShouldReturnTheSearchResultsPage() throws Exception {
         ModelAndView modelAndView = searchController.handleSearchByTeamName("teamName", model);

@@ -14,16 +14,6 @@
     <img id="banner-image" src="<c:url value='/images/banner.png'/>"/>
 
     <form action="search" method="post">
-        Player Name: <input type="text" name="nameOnly"><br>
-        <input type="submit" value="Submit">
-    </form>
-
-    <form action="search" method="post" >
-        Number: <input type="text" name="numberOnly"><br>
-        <input type="submit" value="Submit">
-    </form>
-
-    <form action="search" method="post">
         Team Name: <input type ="text" name="teamName"><br>
         <input type="submit" value="Submit">
     </form>
