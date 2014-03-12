@@ -65,8 +65,11 @@
                 $( this )
                         .addClass( "ui-state-highlight" )
                         .find( "p" )
-                        .html( "Dropped!" )
+                        .html( "Dropped!" );
 
+                var droppedItem = $(ui.draggable);
+                droppedItem.addClass("ui-state-highlight")
+                droppedItem.team = 'Test'
 
             }
         });
