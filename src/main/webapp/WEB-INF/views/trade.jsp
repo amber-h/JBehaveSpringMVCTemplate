@@ -11,9 +11,8 @@
     <title>Football Manager</title>
 </head>
 <body>
-<div id="menu">
+
     <%@ include file="snippets/menuSnippet.jsp" %>
-</div>
 
 <div id="contents">
     <img id="banner-image" src="<c:url value='/images/banner.png'/>"/>
