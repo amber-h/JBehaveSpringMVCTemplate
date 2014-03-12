@@ -1,5 +1,6 @@
 package org.jbehave.web;
 
+import org.jbehave.model.LeagueData;
 import org.jbehave.services.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,8 @@ public class TradeController {
     @RequestMapping(value="/trade", method = RequestMethod.GET)
     public String displayPage(ModelMap model) {
         model.addAttribute("directions", "Trade Players");
+        model.addAttribute("players", LeagueData.getPlayers());
+        model.addAttribute("teams", LeagueData.getTeams());
         return "trade";
     }
 }
