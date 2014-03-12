@@ -53,7 +53,7 @@
     </c:when>
     <c:otherwise>
         <div id="noResultsMessage">
-            <p>Your search returned no results.</p>
+            <h1>Your search returned no results.</h1>
         </div>
     </c:otherwise>
     </c:choose>
