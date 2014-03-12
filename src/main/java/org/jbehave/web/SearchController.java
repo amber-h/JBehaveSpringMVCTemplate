@@ -52,6 +52,8 @@ public class SearchController {
         int searchNumber = Integer.parseInt(number);
         List<Player> matchingPlayers = playerService.findByNameAndNumber(name, searchNumber);
 
+        modelMap.addAttribute("name", name);
+        modelMap.addAttribute("number", number);
         modelMap.addAttribute("results", matchingPlayers);
         return new ModelAndView("searchResults", modelMap);
     }
