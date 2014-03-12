@@ -52,8 +52,6 @@ public class SearchController {
         int searchNumber = Integer.parseInt(number);
         List<Player> matchingPlayers = playerService.findByNameAndNumber(name, searchNumber);
 
-        modelMap.addAttribute("name", name);
-        modelMap.addAttribute("number", number);
         modelMap.addAttribute("results", matchingPlayers);
         return new ModelAndView("searchResults", modelMap);
     }
@@ -61,7 +59,6 @@ public class SearchController {
     @RequestMapping(value="/search", params = "nameOnly", method= RequestMethod.POST)
     public ModelAndView handleSearchByName(@RequestParam("nameOnly") String name, ModelMap modelMap) {
         List<Player> matchingPlayers = playerService.findByName(name);
-        modelMap.addAttribute("nameOnly", name);
         modelMap.addAttribute("results", matchingPlayers);
 
         return new ModelAndView("searchResults", modelMap);
@@ -71,7 +68,6 @@ public class SearchController {
     public ModelAndView handleSearchByNumber(@RequestParam("numberOnly") String number, ModelMap modelMap) {
         int searchNumber = Integer.parseInt(number);
         List<Player> matchingPlayers = playerService.findByNumber(searchNumber);
-        modelMap.addAttribute("numberOnly", searchNumber);
         modelMap.addAttribute("results",matchingPlayers);
 
         return new ModelAndView("searchResults", modelMap);
@@ -79,21 +75,17 @@ public class SearchController {
     @RequestMapping(value = "/search", params = "teamName",method = RequestMethod.POST)
     public ModelAndView handleSearchByTeamName(@RequestParam("teamName") String teamName, ModelMap modelMap) {
         List<Player> playersOnATeam = playerService.findByTeam(teamName);
-        modelMap.addAttribute("teamName", teamName);
         modelMap.addAttribute("results",playersOnATeam);
 
         List<Coach> coachesOnATeam = coachService.findByTeam(teamName);
         modelMap.addAttribute("coachResults", coachesOnATeam);
-       return new ModelAndView("searchResults", modelMap);
+        return new ModelAndView("searchResults", modelMap);
     }
-
-
 
     @RequestMapping(value = "/search", params = "age", method = RequestMethod.POST)
     public ModelAndView handleSearchOlderThan(@RequestParam("age") String age, ModelMap modelMap) {
         int searchAge = Integer.parseInt(age);
         List<Player> matchingPlayers = playerService.findOlderThan(searchAge);
-        modelMap.addAttribute("age", searchAge);
         modelMap.addAttribute("results",matchingPlayers);
 
         return new ModelAndView("searchResults", modelMap);

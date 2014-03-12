@@ -51,8 +51,6 @@ public class SearchControllerTest {
     public void searchByNameAndNumberShouldReturnSearchResultsPage() throws Exception {
         ModelAndView modelAndView = searchController.handleSearchByNameAndNumber(testName, "1", model);
 
-        assertThat((String) model.get("name"), is(testName));
-        assertThat((String)model.get("number"), is("1"));
         assertThat(modelAndView.getViewName(), is("searchResults"));
     }
 
@@ -72,7 +70,6 @@ public class SearchControllerTest {
     public void searchByNameShouldReturnSearchResultsPage() {
         ModelAndView modelAndView = searchController.handleSearchByName(testName, model);
 
-        assertThat((String) model.get("nameOnly"), is(testName));
         assertThat(modelAndView.getViewName(), is("searchResults"));
     }
 
@@ -90,7 +87,6 @@ public class SearchControllerTest {
     public void searchByNumberShouldReturnSearchResultsPage() {
         ModelAndView modelAndView = searchController.handleSearchByNumber("1", model);
 
-        assertThat((Integer) model.get("numberOnly"), is(1));
         assertThat(modelAndView.getViewName(), is("searchResults"));
     }
 
@@ -108,7 +104,6 @@ public class SearchControllerTest {
     public void searchByTeamNameShouldReturnTheSearchResultsPage() throws Exception {
         ModelAndView modelAndView = searchController.handleSearchByTeamName("teamName", model);
 
-        assertThat((String) model.get("teamName"), is("teamName"));
         assertThat(modelAndView.getViewName(), is("searchResults"));
     }
 
@@ -126,7 +121,6 @@ public class SearchControllerTest {
     public void searchByOlderThanShouldReturnTheSearchResultsPage() {
         ModelAndView modelAndView = searchController.handleSearchOlderThan("23", model);
 
-        assertThat((Integer) model.get("age"), is(23));
         assertThat(modelAndView.getViewName(), is("searchResults"));
     }
 
