@@ -10,9 +10,9 @@ public class LeagueData {
 
     static {
         players = new ArrayList<Player>();
-        players.add(new Player("Dannielle Del Rosario", "The Bill Murrays", 72, 44));
-        players.add(new Player("Beccie Magnus", "Squirrels", 13, 31));
-        players.add(new Player("Carol Schofield", "The Oncelers", 13, 28));
+        players.add(new Player(1, "Dannielle Del Rosario", "The Bill Murrays", 72, 44));
+        players.add(new Player(2, "Beccie Magnus", "Squirrels", 13, 31));
+        players.add(new Player(3, "Carol Schofield", "The Oncelers", 13, 28));
 
         teams = new ArrayList<Team>();
         teams.add(new Team("The Bill Murrays", 5, 0, 0));

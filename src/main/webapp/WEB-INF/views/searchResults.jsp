@@ -13,9 +13,6 @@
 <div id="contents">
     <img id="banner-image" src="<c:url value='/images/banner.png'/>"/>
 
-
-
-
     <c:choose>
     <c:when test="${results.size()>0}">
     <div id="playerList">

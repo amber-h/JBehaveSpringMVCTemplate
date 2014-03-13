@@ -68,7 +68,7 @@ public class HomeControllerTest {
     }
 
     private ArrayList<Player> playerServiceReturnsListWithPlayerNamed(String name) {
-        Player player = new Player(name, "Team", 0, 0);
+        Player player = new Player(1, name, "Team", 0, 0);
         ArrayList<Player> players = new ArrayList<Player>();
         players.add(player);
         when(mockPlayerService.retrievePlayers()).thenReturn(players);

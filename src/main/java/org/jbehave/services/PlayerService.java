@@ -68,4 +68,17 @@ public class PlayerService {
     private static boolean isNumeric(String number){
         return number.matches("[0-9]+");
     }
+
+    public Player findByID(String playerID) {
+        ArrayList<Player> players = LeagueData.getPlayers();
+        for (Player player : players) {
+            if(isNumeric(playerID)) {
+                int idNumber = Integer.parseInt(playerID);
+                if (player.getId() == idNumber) {
+                    return player;
+                }
+            }
+        }
+        return null;
+    }
 }

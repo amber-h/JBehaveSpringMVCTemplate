@@ -1,15 +1,13 @@
 package org.jbehave.services;
 
-import org.jbehave.model.Coach;
 import org.jbehave.model.Player;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.MockitoAnnotations.initMocks;
@@ -23,7 +21,7 @@ public class PlayerServiceTest {
     public void setUp() throws Exception {
         initMocks(this);
         playerService = new PlayerService();
-        player = new Player("Dannielle Del Rosario", "The Bill Murrays", 72, 44);
+        player = new Player(1, "Dannielle Del Rosario", "The Bill Murrays", 72, 44);
     }
 
     @Test
@@ -35,6 +33,7 @@ public class PlayerServiceTest {
         assertThat(playerService.retrievePlayers().get(0).getNumber(), is(player.getNumber()));
         assertThat(playerService.retrievePlayers().get(0).getAge(), is(player.getAge()));
     }
+
     @Test
     public void searchByNameAndWrongNumberShouldReturnNoResults() {
         List<Player> players = playerService.findByNameAndNumber("Beccie Magnus", "31");
@@ -102,5 +101,17 @@ public class PlayerServiceTest {
     public void shouldChangePlayerTeamWhenPlayerIsTraded() {
         playerService.trade(player, "The Oncelers");
         assertThat(player.getTeam(), is("The Oncelers"));
+    }
+
+    @Test
+    public void shouldGetPlayerByID(){
+        Player player = playerService.findByID("1");
+        assertThat(player.getName(), is("Dannielle Del Rosario"));
+    }
+
+    @Test
+    public void shouldReturnNullWhenPlayerIdIsInvalid(){
+        Player player = playerService.findByID("-1");
+        assertThat(player, is(nullValue()));
     }
 }

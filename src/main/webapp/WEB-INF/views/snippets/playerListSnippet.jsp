@@ -14,7 +14,7 @@
 
             <tr>
                 <td>
-                    <p class="player-name">${player.name}</p>
+                    <a href="/profile/${player.id}"><p class="player-name">${player.name}</p></a>
                 </td>
                 <td>
                     <p>${player.team}</p>
