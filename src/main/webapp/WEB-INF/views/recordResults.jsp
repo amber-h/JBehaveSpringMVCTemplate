@@ -14,15 +14,32 @@
     <img id="banner-image" src="<c:url value='/images/banner.png'/>"/>
 
     <div id="listContainer">
-        <%@include file="snippets/teamListSnippet.jsp" %>
-        <%--<div id="recordResults">--%>
-            <%--<h2>Record Results for Game</h2>--%>
-            <%--<div id="teamA"></div>--%>
-            <%--<div id="vs">--%>
-                <%--<h2>VS</h2>--%>
-            <%--</div>--%>
-            <%--<div id="teamB"></div>--%>
-        <%--</div>--%>
+        <div id="teamRecords">
+            <h1>Teams</h1>
+            <table id="playerTable">
+                <thead>
+                <tr>
+                    <th>Team Name</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                    <th>Ties</th>
+                    <th>Win %</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="team" items="${teams}">
+
+                    <tr>
+                        <td><p class="player-name">${team.name}</p></td>
+                        <td><p class="player-name">${team.wins}</p></td>
+                        <td><p class="player-name">${team.losses}</p></td>
+                        <td><p class="player-name">${team.ties}</p></td>
+                        <td><p class="player-name">${team.winPercentage}%</p></td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 </body>

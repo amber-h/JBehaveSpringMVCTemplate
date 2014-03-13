@@ -15,9 +15,9 @@ public class LeagueData {
         players.add(new Player("Carol Schofield", "The Oncelers", 13, 28));
 
         teams = new ArrayList<Team>();
-        teams.add(new Team("The Bill Murrays"));
-        teams.add(new Team("Squirrels"));
-        teams.add(new Team("The Oncelers"));
+        teams.add(new Team("The Bill Murrays", 5, 0, 0));
+        teams.add(new Team("Squirrels", 0, 1, 1));
+        teams.add(new Team("The Oncelers", 2, 2, 0));
     }
 
 

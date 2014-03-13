@@ -77,6 +77,14 @@ div #banner {
     margin: 0px 49px;
 }
 
+#teamRecords{
+    display: inline-block;
+    width: 400px;
+    margin: 0px 49px;
+    margin-left: 30%;
+    text-align: center;
+}
+
 table{
     text-align: center;
     margin-left: auto;
