@@ -31,10 +31,10 @@
 
                     <tr>
                         <td><p class="player-name">${team.name}</p></td>
-                        <td><p class="player-name" contenteditable="true">${team.wins}</p></td>
-                        <td><p class="player-name">${team.losses}</p></td>
-                        <td><p class="player-name">${team.ties}</p></td>
-                        <td><p class="player-name">${team.winPercentage}%</p></td>
+                        <td><p>${team.wins}</p></td>
+                        <td><p>${team.losses}</p></td>
+                        <td><p>${team.ties}</p></td>
+                        <td><p>${team.winPercentage}%</p></td>
                     </tr>
                 </c:forEach>
                 </tbody>

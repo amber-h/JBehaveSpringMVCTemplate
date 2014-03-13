@@ -14,7 +14,7 @@
         </li>
         <li>
             <a href ="<c:url value="/recordResults" />">
-                Record Results</a>
+                League Results</a>
         </li>
     </ul>
 
