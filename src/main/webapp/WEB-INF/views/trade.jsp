@@ -16,13 +16,14 @@
 
 <div id="contents">
     <img id="banner-image" src="<c:url value='/images/banner.png'/>"/>
-    <div id ="directions">
+
+    <div id="directions">
         <p>${directions}</p>
     </div>
     <div>
         <form action="/trade" method="GET">
             <div id="listContainer">
-                <%@include file="snippets/playerListSnippet.jsp"%>
+                <%@include file="snippets/playerListSnippet.jsp" %>
 
                 <div id="teamList">
                     <h1>Teams</h1>
@@ -50,29 +51,58 @@
         </form>
     </div>
 </div>
-
-</body>
-
 <script>
-    $(function() {
-        $( ".player-name" ).draggable({
+    $(function () {
+        $(".player-name").draggable({
             cursor: 'move',
             revert: true
         });
-        $( ".team-name" ).droppable({
-            drop: function( event, ui ) {
-                $( this )
-                        .addClass( "ui-state-highlight" )
-                        .find( "p" )
-                        .html( "Dropped!" );
+
+
+        $(".team-name").droppable({
+            drop: function (event, ui) {
+                $(this)
+                        .addClass("ui-state-highlight")
 
                 var droppedItem = $(ui.draggable);
-                droppedItem.addClass("ui-state-highlight")
-                droppedItem.team = 'Test'
+                droppedItem.addClass("ui-state-highlight");
+
+                var playerName = ui.draggable.context.innerHTML;
+                var teamName = $(this).context.innerHTML;
+
+                var info = {
+                    "playerName": playerName,
+                    "teamName": teamName
+                };
+//                alert(info.playerName);
+//                alert(info.teamName);
+
+                sendAjax(info);
 
             }
         });
     });
 
+    function sendAjax(info) {
+//        alert("inside sendAjax");
+//        alert(info.playerName);
+        var playerName = info.playerName;
+
+        $.ajax({
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        type: "POST",
+        url: "trade",
+        data: {name: playerName},
+        success: function () {
+            alert("It's posted!")
+        }
+    });
+   }
+
 </script>
+</body>
 </html>
+
