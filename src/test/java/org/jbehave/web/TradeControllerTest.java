@@ -44,7 +44,7 @@ public class TradeControllerTest {
     @Ignore
     @Test
     public void shouldReturnTradeSuccessViewWhenPlayerTraded() throws Exception {
-        Player tradedPlayer = new Player("playerName", "oldTeam", 10, 10);
+        Player tradedPlayer = new Player(1, "playerName", "oldTeam", 10, 10);
 //        ModelAndView modelAndView = tradeController.tradePlayer(model,new TradeInfo());
         assertThat((String) model.get("playerName"), is("playerName"));
         assertThat((String) model.get("teamName"), is("newTeam"));

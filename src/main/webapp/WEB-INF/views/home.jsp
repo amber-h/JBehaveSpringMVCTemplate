@@ -18,7 +18,7 @@
         <p>${banner}</p>
     </div>
 
-    <div id="listContainer">
+    <div class="listContainer">
     <%@include file="snippets/playerListSnippet.jsp"%>
 
     <div id="coachList">

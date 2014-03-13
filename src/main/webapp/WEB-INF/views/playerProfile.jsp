@@ -20,8 +20,11 @@
             </div>
         </c:when>
         <c:otherwise>
-            <div>
-                <p>This is the profile page for: ${player.name}</p>
+            <div class="playerProfile">
+                <p class="player-name">${player.name}</p>
+                <p>Team: ${player.team}</p>
+                <p>#${player.number}</p>
+                <p>Age: ${player.age}</p>
             </div>
         </c:otherwise>
     </c:choose>

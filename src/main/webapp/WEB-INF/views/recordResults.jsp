@@ -13,7 +13,7 @@
 <div id="contents">
     <img id="banner-image" src="<c:url value='/images/banner.png'/>"/>
 
-    <div id="listContainer">
+    <div class="listContainer">
         <div id="teamRecords">
             <h1>Teams</h1>
             <table id="playerTable">

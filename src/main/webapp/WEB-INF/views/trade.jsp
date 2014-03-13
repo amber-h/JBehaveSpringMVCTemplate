@@ -22,8 +22,8 @@
     </div>
     <div>
         <form action="/trade" method="GET">
-            <div id="listContainer">
-                <%@include file="snippets/playerListSnippet.jsp" %>
+            <div class="listContainer">
+                <%@include file="snippets/playerListSnippet.jsp"%>
 
                 <div id="teamList">
                     <h1>Teams</h1>

@@ -38,7 +38,6 @@ body {
 }
 
 #contents {
-    /* display:inline-block; */
     width: 1000px;
     align-content: center;
     margin: 0px auto;
@@ -65,16 +64,10 @@ div #banner {
     color: #666;
 }
 
-#playerList{
+#playerList, #coachList, #teamList{
     display: inline-block;
     margin: 0px 49px;
     width: 400px;
-}
-
-#coachList, #teamList{
-    display: inline-block;
-    width: 400px;
-    margin: 0px 49px;
 }
 
 #teamRecords{
@@ -89,8 +82,6 @@ table{
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    /* border: 1px solid #DDD; */
-    /* margin-bottom: 20px; */
 }
 
 .player-name, .team-name{
@@ -108,27 +99,13 @@ a {
     text-decoration: none;
 }
 
-#playerList td{
-    /* width: 25%; */
-}
-
-
-#coachList td{
-    /* width: 33%; */
-}
-
-thead tr {
-}
-
 th, td {
     padding: 15px 10px;
 }
 
-#listContainer{
+.listContainer{
     width: 1000px;
     margin: auto;
-    /* margin-right: 50px; */
-    /* padding-bottom: 20px; */
 }
 
 #noResultsMessage{
@@ -155,4 +132,9 @@ th, td {
 #vs h2{
     padding-top: 15px;
     font-size: 55px;
+}
+
+.playerProfile{
+    width: 400px;
+    margin: auto;
 }
