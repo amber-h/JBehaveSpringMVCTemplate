@@ -31,7 +31,7 @@
 
                     <tr>
                         <td><p class="player-name">${team.name}</p></td>
-                        <td><p class="player-name">${team.wins}</p></td>
+                        <td><p class="player-name" contenteditable="true">${team.wins}</p></td>
                         <td><p class="player-name">${team.losses}</p></td>
                         <td><p class="player-name">${team.ties}</p></td>
                         <td><p class="player-name">${team.winPercentage}%</p></td>
